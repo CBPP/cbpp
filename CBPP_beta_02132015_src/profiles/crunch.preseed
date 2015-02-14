@@ -1,0 +1,19 @@
+##forever sudo
+d-i passwd/root-login boolean false
+
+##no proxy
+d-i mirror/http/proxy string
+
+##sorry rms
+d-i apt-setup/non-free  boolean true
+d-i apt-setup/contrib boolean true
+
+##formatting?
+#d-i partman-auto/method string
+#d-i  partman-auto/choose_recipe  select
+#d-i partman/choose_partition  select
+#d-i grub-installer/only_debian  boolean true
+#d-i grub-installer/with_other_os  boolean
+
+##no popcon
+d-i     popularity-contest/participate  boolean false
