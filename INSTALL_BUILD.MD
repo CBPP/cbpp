@@ -3,10 +3,10 @@ Keep in mind, as the distro is currently based off of the Debian netinst, an int
 This is in no way a finished product. The Beta is currently more of a proof-of-concept than a full fledged release. As such, some breakage may arise through normal use. Regardless, experienced users and those familiar with the issues between Jessie and the #! metapackage will likely be familiar with the issues and should have no problem using this as a daily driver.
 While we don't forsee any serious issues at this time, INSTALL AT YOUR OWN RISK. We are not responsible for any loss of data or otherwise unexpected consequences. VMs would be the safest choice until we can test further.
 
-#INSTALL
+##INSTALL
 The simplest way to get the Beta up and running would simply be to download via torrent.
 
-#BUILDING
+##BUILDING
 However, if you intend to build from our source, here are the steps:
 (We recommend using a Jessie-based Debian distro for building)
 
@@ -17,7 +17,7 @@ However, if you intend to build from our source, here are the steps:
 
 And of course, while you're here, have a stroll through the packages, configs, and scripts! Feel free to fork the project and send up any changes if you find any way to improve the project. There's a lot of work to do, and Linux is all about sharing ;)
 
-#PROBLEMS BUILDING?
+##PROBLEMS BUILDING?
 Here's a few fixes for snags we've come across:
   
   Missing Package Errors - 
