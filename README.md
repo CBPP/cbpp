@@ -1,2 +1,2 @@
 # cbpp
-#!++, A CrunchBang revival project.
+# #!++, A CrunchBang revival project.
