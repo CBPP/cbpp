@@ -129,7 +129,7 @@ transmission-gtk
 vlc
 geany
 geany-plugins
-evince
+qpdfview
 gimp
 gimp-plugin-registry
 gnumeric
