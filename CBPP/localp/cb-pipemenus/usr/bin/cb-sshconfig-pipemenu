@@ -46,7 +46,7 @@ if len(hosts) >= 2:
 			print '    <item label="Start terminal session">'
 			print '        <action name="Execute">'
 			print '            <command>'
-			print '                terminator --command=&quot;ssh '+user+port[0]+h['hostname']+'&quot;'
+			print '                x-terminal-emulator -e ssh '+user+port[0]+h['hostname']
 			print '            </command>'
 			print '        </action>'
 			print '    </item>\n'
