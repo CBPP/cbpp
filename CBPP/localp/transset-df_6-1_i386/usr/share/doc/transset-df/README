@@ -1,0 +1,37 @@
+This is a patched version of xorg's transset
+I wanted to integrate transset into my windowmanager and to
+be able to set and unset transparency by just pressing a key.
+To make that possible I added several different 'select methods'.
+The first one was 'select by point' and lets the user run transset
+directly on the window curently under the cursor without bringing 
+up the crosshair. Later select by name and id was added after insperation
+from other transset patches.
+
+In the future I guess it's ment for the windowmanagers to handle
+transparency. Then we will hopefully see these functions and many other
+now imposible function. This will however require you to wait untill this is
+implementet in your favorite wm. This patch is a way of "scratching where it 
+itches", by creating a usefull integration with every windowmanager without 
+changing any wm-code. And it's a very "unix way" of doing things too :)
+
+Features
+	*select window by clicking (as transset)
+	*select actual focused X11 window
+	*select window by pointing
+	*select by window name or id
+	*force toggle
+	*increase or decrease opacity
+
+Instalation
+	type:
+		make
+		make install
+
+Homepage: http://www.forchheimer.se/transset-df/
+
+Any questions/sugestions or if you just want to say hello don't fear to send
+me a email
+
+Cheers
+Daniel Forchheimer (upiom)
+n04df@student.lth.se

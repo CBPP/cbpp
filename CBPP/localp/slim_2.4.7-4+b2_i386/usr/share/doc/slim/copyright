@@ -1,0 +1,113 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: slim
+Upstream-Contact: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+Source: http://developer.berlios.de/project/showfiles.php?group_id=2663
+
+Files: *
+Copyright: 1997-1998 Per Liden
+	   2004-2006, Simone Rota <sip@varlock.com>, Johannes Winkelmann <jw@tks6.net>
+	   2006-2013, Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+License: GPL-2+
+
+Files: Ck.cpp
+Copyright: 2011, David Hauweele
+License: GPL-2+
+
+Files: Ck.h; PAM.*
+Copyright: 2007, Martin Parm
+License: GPL-2+
+
+Files: image.*
+Copyright: 2002-2004 Hari Nair <hari@alumni.caltech.edu>
+License: GPL-2+
+
+Files: jpeg.c; png.c
+Copyright: 2002 Hari Nair <hari@alumni.caltech.edu>
+License: GPL-2+
+
+Files: slimlock.cpp
+Copyright: 2010-2012 Joel Burget <joelburget@gmail.com>
+License: GPL-2+
+
+Files: util.*
+Copyright: 2009 Eygene Ryabinkin <rea@codelabs.ru>
+License: GPL-2+
+
+Files: themes/default/panel.png
+Copyright: 2004 Lila Community
+License: GPL-2+
+
+Files: themes/default/background.png
+Copyright: 2005 rafael nascimento
+License: permissive
+ This file may be copied and used freely without restrictions. It may
+ be used in projects which are not available under a GNU General Public License.
+
+Files: cmake/*
+Copyright: 2006, Alexander Neundorf, <neundorf@kde.org>
+	       2008, Kevin Kofler, <kevin.kofler@chello.at>
+License: BSD-3-clause
+ These scripts are placed under the BSD license:
+ Copyright (c) The Regents of the University of California.
+ All rights reserved.
+ .
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. Neither the name of the University nor the names of its contributors
+    may be used to endorse or promote products derived from this software
+    without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.
+
+Files: debian/*
+Copyright: 2007-2008, Mike Massonnet <mmassonnet@gmail.com> 
+	   2009-2012, Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+	   2014, Mateusz Łukasik <mati75@linuxmint.pl>
+License: GPL-2+
+
+Files: debian/debian-joy/*;debian/debian-moreblue-orbit/*;debian/debian-spacefun/*;
+Copyright: 2007-2008 Mike Massonnet <mmassonnet@gmail.com>
+	   2008 Yves-Alexis Perez <corsac@debian.org>
+License: GPL-2+
+
+Files: debian/debian-moreblue/*
+Copyright: 2007 Mike Massonnet
+License: GPL-2+
+
+Files: debian/debian-moreblue-orbit/background.png
+Copyright: Valessio S Brito <valessio@debianart.org>
+License: GPL-2+
+
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; version 2 dated June, 1991.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this package; if not, write to the Free Software Foundation,
+ Inc., 51 Franklin St, Fifth Floor, Boston,
+ MA 02110-1301, USA.
+ .
+ On Debian GNU/Linux systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.

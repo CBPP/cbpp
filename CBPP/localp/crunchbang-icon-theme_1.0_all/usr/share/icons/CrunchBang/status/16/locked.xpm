@@ -1,0 +1,26 @@
+/* XPM */
+static char *locked[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 4 1",
+"  c #000000",
+". c #040404",
+"X c #050505",
+"o c None",
+/* pixels */
+"oooooooooooooooo",
+"oooooX    Xooooo",
+"ooooo      ooooo",
+"ooooo  oo  ooooo",
+"ooooo  oo  ooooo",
+"ooooo  oo  ooooo",
+"oooX        Xooo",
+"ooo          ooo",
+"ooo          ooo",
+"ooo          ooo",
+"ooo          ooo",
+"ooo          ooo",
+"ooo          ooo",
+"oooooooooooooooo",
+"oooooooooooooooo",
+"oooooooooooooooo"
+};

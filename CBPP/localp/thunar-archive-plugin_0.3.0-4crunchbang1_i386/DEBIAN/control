@@ -1,0 +1,13 @@
+Package: thunar-archive-plugin
+Version: 0.3.0-4crunchbang1
+Architecture: i386
+Maintainer: Debian Xfce Maintainers <pkg-xfce-devel@lists.alioth.debian.org>
+Installed-Size: 511
+Depends: libatk1.0-0 (>= 1.12.4), libc6 (>= 2.3.6-6~), libcairo2 (>= 1.2.4), libexo-1-0 (>= 0.5.0), libfontconfig1 (>= 2.9.0), libfreetype6 (>= 2.2.1), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.24.0), libgtk2.0-0 (>= 2.14.0), libpango1.0-0 (>= 1.14.0), libthunarx-2-0 (>= 1.1.0), libxfce4util4 (>= 4.3.99.2), thunar (>= 0.5.0rc2-1)
+Recommends: squeeze (>= 0.2.3-5) | xarchiver (>= 0.3.9.2beta2-2) | ark | file-roller
+Section: xfce
+Priority: optional
+Description: Archive plugin for Thunar file manager
+ This plugin allows one to extract and create archive from inside the Thunar
+ file manager. At the moment it uses file-roller but will use xarchiver in the
+ future.

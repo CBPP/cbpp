@@ -1,0 +1,101 @@
+#!/bin/bash
+# ---------------------------------------------------------------------
+# An Openbox pipemenu for configuring printing under CrunchBang Linux.
+# Written for CrunchBang Linux <http://crunchbanglinux.org/>
+# by Philip Newborough (aka corenominal) <mail@philipnewborough.co.uk>
+# ---------------------------------------------------------------------
+
+pathto=$(readlink -f "$0" | sed 's%/*[^/]\+/*$%%')
+
+if [[ -f $pathto/cb-include.cfg ]]
+then
+    source "$pathto/cb-include.cfg"
+else
+    echo "  Failed to locate cb-include.cfg"
+    exit 1
+fi
+
+# Set flag
+INSTALLED=false
+
+if [ "$1" = "--install" ]; then
+    terminator --title="Install Printer Support" --command="cb-printing-pipemenu --install-printing"
+    exit 0
+fi
+if [ "$1" = "--install-printing" ]; then
+    clear
+    echo ""
+    echo "  INSTALL PRINTING SUPPORT"
+    echo "  ------------------------"
+    echo "  This script will install printing support."
+    echo ""
+    echo -n "  Run the installer now? (Y|n) > "
+    read a
+    if [ "$a" = "y" ] || [ "$a" = "Y" ] || \
+    [ "$a" = "" ]; then
+        # Checking internet connection...
+        connectiontest
+        clear
+        echo "  Updating sources..."
+        sleep 2s
+        sudo apt-get update
+        clear
+        if ! sudo apt-get install -y cb-meta-printer-support; then
+            clear
+            echo ""
+            echo "  There was a problem installing printing packages."
+            echo ""
+            echo "  Hit any key to try again, or \"q\" to quit..."
+            read -n1 a
+            if [ "$a" = "q" ] || [ "$a" = "Q" ]; then
+                clear
+                exit 0
+            else
+                cb-printing-pipemenu --install-printing
+                exit 0
+            fi
+        else
+            clear
+            echo ""
+            echo "  Printing support has been installed successfully."
+            echo ""
+            echo "  Hit any key to exit..."
+            read -n1 a
+            exit 0
+        fi
+    else
+        exit 0
+    fi
+fi
+# Start pipemenu
+echo "    <openbox_pipe_menu>"
+
+# check for system-config-printer
+if [ -x "/usr/bin/system-config-printer" ];then
+    INSTALLED=true
+    cat << _scf_
+	    <item label="Configure Printers">
+            <action name="Execute">
+				<command>
+					gksudo system-config-printer
+				</command>
+			</action>
+		</item>
+_scf_
+fi
+
+if [ $INSTALLED = false ]; then
+    cat << _install_
+	    <item label="Install Printing Support">
+            <action name="Execute">
+				<command>
+					cb-printing-pipemenu --install
+				</command>
+			</action>
+		</item>
+_install_
+fi
+
+# End pipemenu
+echo "    </openbox_pipe_menu>"
+exit 0

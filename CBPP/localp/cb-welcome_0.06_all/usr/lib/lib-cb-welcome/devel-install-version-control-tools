@@ -1,0 +1,16 @@
+clear
+
+echo "  -----------------------------[ screen $STEP of $STEPS ]----------------------------
+
+  INSTALL VERSION CONTROL TOOLS
+  -----------------------------
+  Would you like to install some commonly used version control tools?
+  If you choose to do this, the following package will be installed:
+
+      cb-meta-vcs
+
+  Note: additional packages listed as dependencies will also be installed."
+
+if prompt "  Would you like to install version control tools?"; then
+	sudo apt-get install -y cb-meta-vcs
+fi

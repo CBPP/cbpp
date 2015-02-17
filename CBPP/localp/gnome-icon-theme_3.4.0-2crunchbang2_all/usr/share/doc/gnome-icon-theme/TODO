@@ -1,0 +1,50 @@
+Icon creation plan (...for hires stuff)
+---------------------------------------
+THIS DOCUMENT IS QUICKLY DONE AND NEEDS REVISION AND PROPER ATTENTION
+
+face-kiss
+face-monkey
+face-raspberry
+face-worried
+weather-clear
+weather-clear-night
+weather-few-clouds
+weather-few-clouds-night
+weather-fog
+weather-overcast
+weather-severe-alert
+weather-showers
+weather-showers-scattered
+weather-snow
+weather-storm
+network-wired
+network-wireless
+applications-accessories
+applications-development
+applications-engineering
+applications-games
+applications-multimedia (Brand new icon please)
+applications-other
+applications-science
+applications-system
+applications-utilities
+preferences-desktop
+preferences-other
+system-help
+multimedia-volume-control
+preferences-desktop-font
+preferences-desktop-multimedia
+preferences-desktop-peripherals
+preferences-desktop-personal
+pda
+
+#For OSD. I'd rather see these as symbols
+media-eject 
+media-playback-pause
+media-playback-start
+media-playback-stop
+media-record
+media-seek-backward
+media-seek-forward
+media-skip-backward
+media-skip-forward

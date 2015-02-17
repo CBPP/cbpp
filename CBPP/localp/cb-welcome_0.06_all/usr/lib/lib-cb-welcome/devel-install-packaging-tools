@@ -1,0 +1,26 @@
+clear
+
+echo "  -----------------------------[ screen $STEP of $STEPS ]----------------------------
+
+  INSTALL DEVELOPER ENVIRONMENT FOR DEBIAN PACKAGING
+  --------------------------------------------------
+  Would you like to install a suite of packages used for developing Debian
+  packages? If you choose to do this, the following package will be
+  installed:
+
+      cb-meta-packaging
+
+  Note: additional packages listed as dependencies will also be installed."
+
+if prompt "  Whould you like to install packaging tools?"; then
+	sudo apt-get install -y cb-meta-packaging
+	sudo chown $USER:$USER /etc/pbuilderrc
+	sudo echo "MIRRORSITE=http://ftp.de.debian.org/debian" > /etc/pbuilderrc
+	sudo echo "DISTRIBUTION=wheezy" >> /etc/pbuilderrc
+	sudo echo "COMPONENTS=\"main contrib non-free\"" >> /etc/pbuilderrc
+	sudo chown root:root /etc/pbuilderrc
+	
+	if prompt "  Create pbuilder environment now?"; then
+		sudo pbuilder create
+	fi
+fi

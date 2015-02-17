@@ -1,0 +1,18 @@
+Package: tint2
+Version: 0.11~svn649-1
+Architecture: i386
+Maintainer: Kwaku "Killeroid" Yeboah-Antwi <kwakuyeboah@gmail.com>>
+Installed-Size: 232
+Depends: libc6 (>= 2.7), libcairo2 (>= 1.2.4), libglib2.0-0 (>= 2.24.0), libimlib2, libpango1.0-0 (>= 1.20.0), libx11-6, libxcomposite1 (>= 1:0.3-1), libxdamage1 (>= 1:1.1), libxfixes3, libxinerama1, libxrandr2 (>= 2:1.2.99.2), libxrender1
+Section: x11
+Priority: optional
+Homepage: http://code.google.com/p/tint2/
+Description: lightweight taskbar
+ Tint is a simple panel/taskbar intentionally made for openbox3, but should
+ also work with other window managers. The taskbar includes transparency and
+ color settings for the font, icons, border, and background. It also supports
+ multihead setups, customized mouse actions, and a built-in clock. Tint was
+ originally based on ttm code.
+ .
+ The goal is to keep a clean and unintrusive look with code lightweight and
+ compliance with freedesktop specification.

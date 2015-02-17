@@ -1,0 +1,8 @@
+[KdmGreeterTheme]
+Encoding=UTF-8
+Greeter=debian-moreblue.xml
+Name=Debian MoreBlue
+Description=Debian MoreBlue KDM Theme, based on Debian MoreBlue GDM Theme by Andre L. R. Ferreira <andrelrf@gmail.com>
+Author=Fathi Boudra, based on same GDM Theme by Andre L. R. Ferreira
+Copyright=(c) 2006 Fathi Boudra <fboudra@free.fr>
+Screenshot=screenshot.png

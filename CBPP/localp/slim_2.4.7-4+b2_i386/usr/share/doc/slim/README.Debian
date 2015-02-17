@@ -1,0 +1,16 @@
+'console' command
+-----------------
+
+Slim permits one to type the special username 'console' to popup a terminal
+emulator with the login program. In the previous packages (<1.3.1) the terminal
+command was set to x-terminal-emulator (cf. #499048). That was quite a bad
+suggestion as it allowed a terminal like gnome-terminal to be run, which has a
+feature to open new windows/tabs that instead of running login gave access to a
+shell with root privileges.
+
+On this behave, it is highly recommended to use a terminal emulator like xterm.
+The new package defaults and recommends xterm again.
+
+Thanks to Piotr Engelking for pointing out that issue (#536542).
+
+ -- Mike Massonnet <mmassonnet@gmail.com>  Tue, 21 Jul 2009 17:07:20 +0100

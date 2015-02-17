@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.freedesktop.Notifications
+Exec=/usr/lib/xfce4/notifyd/xfce4-notifyd

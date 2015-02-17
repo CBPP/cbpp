@@ -1,0 +1,18 @@
+waldorf-slim-theme (0.03) unstable; urgency=low
+
+  * Depends: s/ttf-liberation/fonts-liberation/.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Mon, 07 Jan 2013 19:56:00 +0000
+
+waldorf-slim-theme (0.02) unstable; urgency=low
+
+  * Updated theme: move login box to left to accommodate
+    dual screen set-ups.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Wed, 25 Jul 2012 13:07:24 +0100
+
+waldorf-slim-theme (0.01) unstable; urgency=low
+
+  * Initial release.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Wed, 18 Apr 2012 07:53:50 +0100

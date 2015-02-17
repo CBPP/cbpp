@@ -1,0 +1,19 @@
+clear
+
+echo "  -----------------------------[ screen $STEP of $STEPS ]----------------------------
+
+  INSTALL SSH SERVER
+  ------------------
+  OpenSSH is a FREE version of the SSH connectivity tools that technical users
+  of the Internet rely on. Would like to install OpenSSH server? If you choose
+  to do this, the following package will be installed:
+
+      cb-meta-ssh
+
+  Note: additional packages listed as dependencies will also be installed.
+
+  For more information see: http://www.openssh.com/"
+
+if prompt "  Would you like to install openssh-server?"; then
+	sudo apt-get install -y cb-meta-ssh
+fi

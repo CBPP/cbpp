@@ -1,0 +1,16 @@
+clear
+
+echo "  -----------------------------[ screen $STEP of $STEPS ]----------------------------
+
+  UPDATE SOFTWARE SOURCES
+  -----------------------
+  Before we can continue, we need to make sure your system's software sources
+  are up-to-date. This script will now execute the command:
+
+      sudo apt-get update"
+
+if prompt "  Would you like to update your software sources?"; then
+	sudo apt-get update
+else
+	exit 0
+fi

@@ -1,0 +1,54 @@
+obm-dir
+=======
+
+obm-dir <directory> <command>
+
+Builds a menu from a directory, alphabetically sorted. Example:
+	obm-dir "/home/kolme/wallpaper" "fbsetbg"
+
+
+obm-moz
+=======
+usage: obm-moz [options]
+
+options:
+  -h, --help            show this help message and exit
+  -f, --firefox         Look for Firefox bookmarks
+  -m, --mozilla         Look for Mozilla Suite bookmarks
+  -b FILENAME, --bookmarks=FILENAME
+                        Especify the path to the bookmarks.html file
+  -r ROOT, --root=ROOT  Root folder of the bookmarks
+  -n BROWSER, --navigator=BROWSER
+                        Command to run the web browser.
+
+Translates any mozilla-compatible bookmarks into an openbox menu.
+If no arguments are given, it'll try to find your bookmarks.
+A bookmarks folder can be passed as an argument, It'll try to find it and
+build the menu out of that folder.
+Example:
+	obm-moz -b "/path/to/bookmarks.html" -r "Bookmarks Toolbar Folder"
+
+
+obm-nav
+=======
+
+obm-nav <root> <filer> <terminal>
+
+Recursively builds a menu to navigate directories. Example:
+	obm-nav /home/kolme rox aterm
+
+
+obm-xdg
+=======
+
+obm-xdg --import
+  Creates a file called "gnome-menus.xml"
+  
+obm-xdg --replace
+  Replaces the Openbox menu with the Gnome menus
+  
+obm-xdg
+  Prints a pipemenu (normal behaviour)
+
+A path to a different gnome menu can be passed:
+obm-xdg [options] /path/to/system.menu

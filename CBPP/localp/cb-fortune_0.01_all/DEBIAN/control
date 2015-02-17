@@ -1,0 +1,11 @@
+Package: cb-fortune
+Version: 0.01
+Architecture: all
+Maintainer: Philip Newborough <corenominal@corenominal.org>
+Installed-Size: 43
+Depends: libnotify-bin, fortune, python-notify
+Section: misc
+Priority: extra
+Homepage: http://crunchbang.org/
+Description: test script for libnotify.
+ Have Waldorf say a little adage on your desktop.

@@ -1,0 +1,15 @@
+{
+   "content_scripts": [ {
+      "all_frames": true,
+      "css": [ "statler-waldorf-scrollbars.css" ],
+      "matches": [ "\u003Call_urls\u003E" ]
+   } ],
+   "description": "Scrollbars for the Statler & Waldorf CrunchBang Linux themes.",
+   "icons": {
+      "128": "icon128.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgFWk9Mr9mwzYCdhLLL3VHaLbEzQqRh7n/llu4DM1RPfauRPNuD36wdf5FbeXSxw1dakR0lbToT7bdpn4PFGltv2OIwBW62ev7fj9nNJfUR8ZZu9iQdL7FJaYF5nHOZaAEAoivscdgTuBqQkMTUDubr13rK1HJPjLrJI5jLgFaOQIDAQAB",
+   "name": "Statler & Waldorf Scrollbars",
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "1.0"
+}

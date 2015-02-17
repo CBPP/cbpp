@@ -1,0 +1,157 @@
+#!/bin/bash
+# ---------------------------------------------------------------------
+# An Openbox pipemenu for use with LibreOffice and CrunchBang Linux.
+# Written for CrunchBang Linux <http://crunchbang.org/>
+# by Philip Newborough (aka corenominal) <mail@philipnewborough.co.uk>
+# ---------------------------------------------------------------------
+
+pathto=$(readlink -f "$0" | sed 's%/*[^/]\+/*$%%')
+
+if [[ -f $pathto/cb-include.cfg ]]
+then
+    source "$pathto/cb-include.cfg"
+else
+    echo "  Failed to locate cb-include.cfg"
+    exit 1
+fi
+
+# Set flag
+INSTALLED=false
+
+if [ "$1" = "--install" ]; then
+    terminator --title="Install LibreOffice" --command="cb-libreoffice-pipemenu --install-lo"
+    exit 0
+fi
+if [ "$1" = "--install-lo" ]; then
+    clear
+    echo ""
+    echo "  INSTALL LIBREOFFICE"
+    echo "  -------------------"
+    echo "  This script will install LibreOffice."
+    echo ""
+    echo -n "  Run the installer now? (Y|n) > "
+    read a
+    if [ "$a" = "y" ] || [ "$a" = "Y" ] || \
+    [ "$a" = "" ]; then
+        # Checking internet connection...
+        connectiontest
+        clear
+        echo "  Updating sources..."
+        sleep 2s
+        sudo apt-get update
+        clear
+        if ! sudo apt-get install -y cb-meta-libreoffice; then
+            clear
+            echo ""
+            echo "  There was a problem installing LibreOffice."
+            echo ""
+            echo "  Hit any key to try again, or \"q\" to quit..."
+            read -n1 a
+            if [ "$a" = "q" ] || [ "$a" = "Q" ]; then
+                clear
+                exit 0
+            else
+                cb-libreoffice-pipemenu --install-oo
+                exit 0
+            fi
+        else
+            clear
+            echo ""
+            echo "  LibreOffice has been installed successfully."
+            echo ""
+            echo "  Hit any key to exit..."
+            read -n1 a
+            exit 0
+        fi
+    else
+        exit 0
+    fi
+fi
+# Start pipemenu
+echo "    <openbox_pipe_menu>"
+
+# Writer
+if [ -x "/usr/bin/lowriter" ];then
+    INSTALLED=true
+    cat << _lowriter_
+	    <item label="Writer">
+            <action name="Execute">
+				<command>
+					lowriter
+				</command>
+			</action>
+		</item>
+_lowriter_
+fi
+
+# Calc
+if [ -x "/usr/bin/localc" ];then
+    INSTALLED=true
+    cat << _localc_
+	    <item label="Calc">
+            <action name="Execute">
+				<command>
+					localc
+				</command>
+			</action>
+		</item>
+_localc_
+fi
+
+# Impress
+if [ -x "/usr/bin/loimpress" ];then
+    INSTALLED=true
+    cat << _loimpress_
+	    <item label="Impress">
+            <action name="Execute">
+				<command>
+					loimpress
+				</command>
+			</action>
+		</item>
+_loimpress_
+fi
+
+# Draw
+if [ -x "/usr/bin/lodraw" ];then
+    INSTALLED=true
+    cat << _lodraw_
+	    <item label="Draw">
+            <action name="Execute">
+				<command>
+					lodraw
+				</command>
+			</action>
+		</item>
+_lodraw_
+fi
+
+# Base
+if [ -x "/usr/bin/lobase" ];then
+    INSTALLED=true
+    cat << _lobase_
+	    <item label="Base">
+            <action name="Execute">
+				<command>
+					lobase
+				</command>
+			</action>
+		</item>
+_lobase_
+fi
+
+if [ $INSTALLED = false ]; then
+    cat << _loinstall_
+	    <item label="Install LibreOffice">
+            <action name="Execute">
+				<command>
+					cb-libreoffice-pipemenu --install
+				</command>
+			</action>
+		</item>
+_loinstall_
+fi
+
+# End pipemenu
+echo "    </openbox_pipe_menu>"
+exit 0

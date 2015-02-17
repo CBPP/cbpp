@@ -1,0 +1,9 @@
+[KSplash Theme: spacefun]
+Name = SpaceFun Splash Screen
+Description = Debian SpaceFun Splash Screen, with both 4:3 and 16:9, based largely on work by the authors listed...
+Version = 1.0
+Author = Valessio Brito <valessio@debianart.org>, Amir Dizdarević <cancivolonter@gmail.com>, Nuno Pinheiro <nuno@oxygen-icons.org>, Riccardo Iaconelli <riccardo@kde.org> and Marco Martin <notmart@gmail.com>
+Homepage = http://wiki.debian.org/DebianArt/Themes/SpaceFun
+
+# Theme behaviour settings.
+Engine = KSplashX

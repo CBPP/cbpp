@@ -1,0 +1,57 @@
+
+class ObMenu:
+ 
+ ObMenu.newMenu()
+ 	Initialices a new menu.
+ ObMenu.newPipe()
+ 	Initialices a new pipe.
+ ObMenu.loadMenu(filename)
+ 	Loads an existing menu file.
+	
+NOTE: It's necessary to call one of the above before doing anything else.
+	
+ ObMenu.saveMenu(filename)
+ 
+ ObMenu.printXml()
+ 
+ ObMenu.getXml()
+ 
+ ___________________________
+ 
+ menu: The ID of the menu you want to modify. If None, the root menu will
+ be modified.
+ n: The position of the item in its submenu, starting in 0.
+ 
+ ObMenu.removeItem(menu, n)
+ 
+ ObMenu.removeMenu(menu)
+ 
+ ObMenu.createSep(menum, n)
+ 	If n not specified, separator will be appended
+	
+ ObMenu.createItem(menu, label, action, execute, n)
+    If n not specified, item will be appended
+	
+ ObMenu.createLink(menu, mid)
+    If n not specified, link will be appended 
+	
+ ObMenu.createPipe(menu, mid, label, execute)
+    If n not specified, pipe will be appended 
+	
+ ObMenu.createMenu(menu, label, mid)
+    If n not specified, menu will be appended 
+	
+ ObMenu.interchange(menu, n1, n2)
+ 
+ ObMenu.setItemProps(menu, n, label, action, exe)
+ 
+ ObMenu.setMenuLabel(menu, label)
+ 
+ ObMenu.getMenuLabel(menu)
+ 
+ ObMenu.setRefLabel(parent, link_id, label)
+ 	parent: ID of the parent menu
+	menu_id
+ ObMenu.setRefId(parent, menu_id, new_id)
+ 
+ 

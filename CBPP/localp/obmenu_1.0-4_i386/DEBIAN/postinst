@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+# Automatically added by dh_pysupport
+if which update-python-modules >/dev/null 2>&1; then
+	update-python-modules  obmenu.public
+fi
+# End automatically added section
+# Automatically added by dh_installmenu
+if [ "$1" = "configure" ] && [ -x "`which update-menus 2>/dev/null`" ]; then
+	update-menus
+fi
+# End automatically added section
+
+
+echo "This version of obmenu is not compatible with some depreciated"
+echo "Openbox menu syntax. For more information, please see:"
+echo "http://openbox.org/wiki/Help:Actions#Execute"

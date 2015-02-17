@@ -1,0 +1,15 @@
+Package: gnome-icon-theme
+Version: 3.4.0-2crunchbang2
+Architecture: all
+Maintainer: Josselin Mouette <joss@debian.org>
+Installed-Size: 9892
+Depends: hicolor-icon-theme, libgtk-3-bin, librsvg2-common
+Enhances: nautilus (>= 2.2)
+Breaks: evolution (<< 2.30), gnome-games (<< 1:2.30.2-1), mail-notification (<< 5.4.dfsg.1-2.2), netspeed (<< 0.15.2-2), rhythmbox (<< 0.12.8)
+Section: gnome
+Priority: optional
+Description: GNOME Desktop icon theme
+ This package contains the default icon theme used by the GNOME desktop.
+ The icons are used in the panel menu, and in nautilus and other
+ applications, to represent the different applications, files,
+ directories, and devices.

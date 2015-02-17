@@ -1,0 +1,33 @@
+#! /bin/sh
+set -e
+
+write_cache()
+{
+if [ -x /usr/bin/gtk-update-icon-cache-3.0 ]; then
+    if ! gtk-update-icon-cache-3.0 --force --quiet /usr/share/icons/gnome; then
+        echo "WARNING: icon cache generation failed"
+    fi
+fi
+}
+
+if [ "$1" = "triggered" ]; then
+    write_cache
+    exit 0
+fi
+
+SIZES=$(ls /usr/share/icons/gnome/*/places | sed -rn 's,^.*/([0-9]+)x[0-9]+/.*$,\1,p')
+
+( while read name prio; do
+    command="update-alternatives --install /usr/share/icons/gnome/scalable/places/start-here.svg start-here.svg /usr/share/icons/gnome/scalable/places/$name.svg $prio"
+    for s in $SIZES; do
+      command="$command --slave /usr/share/icons/gnome/${s}x${s}/places/start-here.png start-here-${s}.png /usr/share/icons/gnome/${s}x${s}/places/$name.png"
+    done
+    $command
+  done ) << EOF
+debian-swirl 30
+gnome-foot 20
+EOF
+
+write_cache
+
+

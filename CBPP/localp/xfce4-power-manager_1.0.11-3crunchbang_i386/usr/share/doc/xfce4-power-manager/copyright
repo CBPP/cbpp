@@ -1,0 +1,33 @@
+This package was debianized by Yves-Alexis Perez <corsac@debian.org> on
+Mon, 27 Oct 2008 07:32:27 +0100
+
+It was downloaded from
+http://goodies.xfce.org/projects/applications/xfce4-power-manager
+
+Copyright Holders: 
+
+© 2008-2009 Ali <aliov@xfce.org>
+
+src/xfpm-button-xf86.c:
+  © 2008-2009 Ali <aliov@xfce.org> with some code from gnome-power-manager
+    which is:
+  © 2006-2007 Richard Hughes <richard@hughsie.com>
+src/xfpm-idle.c:
+  © 2008-2009 Ali <aliov@xfce.org> and some code from GDM 2.24.2 which is:
+  © 2007 Richard Hughes <richard@hughsie.com>
+
+brightness/brightness-button.c:
+  © 2009 Ali <aliov@xfce.org>
+  with some code taken from GtkScaleButton (GTK), which is:
+  © 2005 Ronald S. Bultje
+  © 2006, 2007 Christian Persch
+  © 2006 Jan Arne Petersen
+  © 2005-2007 Red Hat, Inc.
+
+
+License:
+
+You are free to distribute this software under the terms of
+the GNU General Public License (version 2 or later).
+On Debian systems, the complete text of the GNU General Public
+License can be found in the file `/usr/share/common-licenses/GPL'

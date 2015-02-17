@@ -1,0 +1,14 @@
+cb93e7db19f6d4b8e39f5ef323a4a5d9  usr/bin/Thunar
+c79f3d90b9d1c3940c0d2e4c63272608  usr/bin/thunar-settings
+83d4aa4dc2328c92304a92bf7a536711  usr/lib/i386-linux-gnu/Thunar/ThunarBulkRename
+649af77414a49ff76b1bd82b84d911ac  usr/lib/i386-linux-gnu/Thunar/ThunarHelp
+c005faf5565df956145de10d2e858106  usr/lib/i386-linux-gnu/Thunar/thunar-sendto-email
+dd30556d097a6db908df096a356a47fc  usr/lib/i386-linux-gnu/xfce4/panel/plugins/libthunar-tpa.so
+3930193c5dccabc041059ad58c141e88  usr/share/Thunar/sendto/thunar-sendto-email.desktop
+008cf47431200ed7035f31cc8b59a764  usr/share/applications/Thunar-bulk-rename.desktop
+38a81f7d795eb970d4cc0fa76815b5e0  usr/share/applications/Thunar-folder-handler.desktop
+062c7d11de710e2ec097bba3fdd26271  usr/share/applications/Thunar.desktop
+e9d1aa99f9eb14f4f446661a4509cd18  usr/share/applications/thunar-settings.desktop
+cbbed1b35a6391989dca98d3f23eaeee  usr/share/man/man1/Thunar.1.gz
+4758789cfcc104d92203bbc632ba719b  usr/share/menu/thunar
+a42d0779fea52895b136ccc1da382e6b  usr/share/xfce4/panel-plugins/thunar-tpa.desktop

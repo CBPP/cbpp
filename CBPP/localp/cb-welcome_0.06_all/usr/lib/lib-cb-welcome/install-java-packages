@@ -1,0 +1,17 @@
+clear
+
+echo "  -----------------------------[ screen $STEP of $STEPS ]----------------------------
+
+  INSTALL JAVA SUPPORT
+  --------------------
+  By default, CrunchBang does not come with a Java Runtime Environment.
+  Would you like to install Java support now? If you choose to do 
+  this, the following package will be installed:
+
+      cb-meta-java
+
+  Note: additional packages listed as dependencies will also be installed."
+
+if prompt "  Would you like to install Java?"; then
+	sudo apt-get install -y cb-meta-java
+fi

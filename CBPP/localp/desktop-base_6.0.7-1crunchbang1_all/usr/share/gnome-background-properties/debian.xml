@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper>
+    <!-- don't include words such as "wallpaper" (avoids translations) -->
+    <name>Debian</name>
+    <filename>/usr/share/images/desktop-base/desktop-background</filename>
+    <options>zoom</options>
+    <shade_type>horizontal-gradient</shade_type>
+    <pcolor>#0099cc</pcolor>
+    <scolor>#006699</scolor>
+  </wallpaper>
+</wallpapers>

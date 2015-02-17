@@ -1,0 +1,68 @@
+#!/usr/bin/python -O 
+#########################################################################
+#  Copyright 2005 Manuel Colmenero 
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program; if not, write to the Free Software
+#    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+########################################################################
+
+import obxml, sys, os
+
+menu = obxml.ObMenu()
+menu.newPipe()
+if len(sys.argv) != 4:
+	menu.createItem(None, "ERROR: Wrong number of arguments", "Execute", "true")
+	menu.printXml()
+	sys.exit()
+if not os.path.isdir(sys.argv[1]):
+	menu.createItem(None, "ERROR: Not a directory", "Execute", "true")
+	menu.printXml()
+	sys.exit()
+dirs = []
+files = []
+for itm in os.listdir(sys.argv[1]):
+	if itm[0] != ".":
+		if os.path.isdir(sys.argv[1] + "/" + itm):
+			dirs.append(unicode(itm, "utf-8", errors='ignore'))
+		else:
+			files.append(unicode(itm, "utf-8", errors='ignore'))
+menu.createItem(None, "open", "Execute", "%s \"%s\"" % (sys.argv[2], sys.argv[1]))
+menu.createItem(None, "terminal", "Execute", "sh -c \"cd \\\"%s\\\"; %s\"" % (sys.argv[1], sys.argv[3]))
+if not len(dirs) == 0 or not len(files) == 0:
+	menu.createSep(None)
+n = 0
+p = 1
+mid = None
+files.sort()
+dirs.sort()
+for d in dirs:
+	if n > 15:
+		menu.createSep(mid,0)
+		menu.createMenu(mid, "more", "%s%d" % (sys.argv[1], p),0)
+		mid = "%s%d" % (sys.argv[1], p)
+		n = 0
+		p += 1
+	menu.createPipe(mid, "obm-nav-" + d, d, "%s \"%s/%s\" \"%s\" \"%s\"" % (sys.argv[0], sys.argv[1], d, sys.argv[2], sys.argv[3]))
+	n += 1
+for f in files:
+	if n > 15:
+		menu.createSep(mid, 0)
+		menu.createMenu(mid, "more", "%s%d" % (sys.argv[1], p),0)
+		mid = "%s%d" % (sys.argv[1], p)
+		n = 0
+		p += 1
+	menu.createItem(mid, f, "Execute", "%s \"%s/%s\"" % (sys.argv[2], sys.argv[1], f))
+	n += 1
+menu.printXml()

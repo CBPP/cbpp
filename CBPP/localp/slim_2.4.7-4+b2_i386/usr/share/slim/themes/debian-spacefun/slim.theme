@@ -1,0 +1,39 @@
+# SpaceFun theme for SLIM
+# by Yves-Alexis Perez <corsac@debian.org>
+# using artwork from Valessio S Brito <valessio at debianart.org>
+# inspired from slim theme by Johannes Winkelmann
+
+# Messages (ie: shutdown)
+msg_color               #000000
+msg_font                Sans:size=18:bold:dpi=75
+msg_x                   50%
+msg_y                   40%
+msg_shadow_color #FFFFFF
+msg_shadow_xoffset 1
+msg_shadow_yoffset 1
+
+# valid values: stretch, tile
+background_style        stretch
+background_color        #eedddd
+
+# Input controls
+input_panel_x           50%
+input_panel_y           50%
+input_name_x            59
+input_name_y            161
+input_font              Sans:size=12:dpi=75
+input_fgcolor           #000000
+
+# Username / password request
+username_font           Sans:size=14:bold:dpi=75
+username_color          #000000
+username_x              50%
+username_y              122
+password_x              50%
+password_y              122
+username_shadow_color   #FFFFFF
+username_shadow_xoffset 1
+username_shadow_yoffset 1
+
+username_msg            Username:
+password_msg            Password:

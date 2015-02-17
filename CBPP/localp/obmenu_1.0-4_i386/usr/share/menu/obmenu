@@ -1,0 +1,4 @@
+?package(obmenu):needs="X11"\
+	section="Applications/System/Administration"\
+    title="Openbox Menu Editor"\
+    command="/usr/bin/obmenu"

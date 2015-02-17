@@ -1,0 +1,14 @@
+clear
+
+echo "  -----------------------------[ screen $STEP of $STEPS ]----------------------------
+
+  UPDATE INSTALLED PACKAGES
+  -------------------------
+  Would you like to update the installed packages on your system?
+  If you choose to do this, this script will execute the command:
+
+      sudo apt-get dist-upgrade"
+
+if prompt "  Whould you like to update your system now?"; then
+	sudo apt-get dist-upgrade -y
+fi

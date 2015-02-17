@@ -1,0 +1,2 @@
+?package(thunar):needs="X11" section="Applications/File Management"\
+  title="Thunar" longtitle="Xfce4 File Manager" hints="File manager" command="/usr/bin/thunar"

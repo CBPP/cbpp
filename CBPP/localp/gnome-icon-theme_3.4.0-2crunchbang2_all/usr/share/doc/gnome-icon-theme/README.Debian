@@ -1,0 +1,11 @@
+gnome-icon-theme for Debian
+===========================
+
+You can select the default icon that is used for the main menu using the 
+following command:
+
+	update-alternatives --config start-here.svg
+
+After changing the selection, you need to regenerate the cache:
+
+	update-icon-caches /usr/share/icons/gnome

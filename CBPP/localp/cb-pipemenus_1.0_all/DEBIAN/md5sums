@@ -1,0 +1,13 @@
+1dcbef0d0d26618835e2852a8df9f3d8  usr/bin/cb-compositor
+ad92e3e7a24c4214a51d61674bced592  usr/bin/cb-dropbox-pipemenu
+9693f94caf2fad45c75736aaed964f26  usr/bin/cb-help-pipemenu
+61ecc24e4cc3be0abbaddbafe45f2140  usr/bin/cb-include.cfg
+d325f889f66637233b6715d200fa22cb  usr/bin/cb-libreoffice-pipemenu
+2b8f4785cf7d39cd37716148c7b10f00  usr/bin/cb-places-pipemenu
+50b8ac4ce3e2d503889a0313946a6d3b  usr/bin/cb-printing-pipemenu
+6b0531d9d2bd756e628808d1f2a70b19  usr/bin/cb-recent-files-pipemenu
+c9c4849ffe6f362bb44cc6e476a89bb6  usr/bin/cb-remote-desktop-pipemenu
+35f3459848da160ef2b7e5206b4518c7  usr/bin/cb-sshconfig-pipemenu
+3434b18d3ec967d92efede5d4b4d093c  usr/bin/cb-x-www-browser-pipemenu
+59765ace9204cd038e176aa95a78d060  usr/share/doc/cb-pipemenus/changelog.gz
+75eaecfc35d7191aa0cfc1b5ddc8af6a  usr/share/doc/cb-pipemenus/copyright

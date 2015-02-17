@@ -1,0 +1,3 @@
+MIRRORSITE=http://ftp.de.debian.org/debian
+DISTRIBUTION=wheezy
+COMPONENTS="main contrib non-free"

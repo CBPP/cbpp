@@ -1,0 +1,17 @@
+Package: desktop-base
+Version: 6.0.7-1crunchbang1
+Architecture: all
+Maintainer: Gustavo Franco <stratus@debian.org>
+Installed-Size: 7051
+Depends: librsvg2-common
+Suggests: gnome | kde-standard | xfce4 | wmaker
+Section: x11
+Priority: optional
+Homepage: http://www.debian.org/devel/debian-desktop
+Description: common files for the Debian Desktop
+ This package contains various miscellaneous files which are used by
+ Debian Desktop installations.  Currently, it provides some
+ Debian-related artwork and themes, .desktop files containing links to
+ Debian related material (suitable for placement on a user's desktop),
+ and other common files between the available desktop environments
+ such as GNOME and KDE.

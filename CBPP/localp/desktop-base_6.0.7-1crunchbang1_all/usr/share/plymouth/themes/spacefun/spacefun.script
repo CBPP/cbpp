@@ -1,0 +1,467 @@
+# Spacefun Plymouth theme script
+# Copyright 2010 Aurélien COUDERC
+#
+# Inspired by the great blog series on Plymouth by Charlie Brej.
+#
+# The script uses the material made by Valessio Brito for his SpaceFun
+# theme for Debian 6.0 Squeeze.
+
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+#------------------------------- Constants -----------------------------------------
+NUM_STARS = 40;
+MAX_STAR_SIZE = Math.Min(Window.GetWidth(), Window.GetHeight()) * 0.045;
+MAX_MSG_DISPLAYED = 5;
+
+#------------------------------- Background ----------------------------------------
+bg_image = Image("background.png");
+
+# Compute screen/image ratio and scale the background accordingly
+window_max_width = Window.GetX() * 2 + Window.GetWidth();
+window_max_height = Window.GetY() * 2 + Window.GetHeight();
+screen_ratio = window_max_width / window_max_height;
+bg_image_ratio = bg_image.GetWidth() / bg_image.GetHeight();
+if (screen_ratio > bg_image_ratio)
+    bg_scale_factor = window_max_width / bg_image.GetWidth();
+else
+    bg_scale_factor = window_max_height / bg_image.GetHeight();
+scaled_bg_image = bg_image.Scale(bg_image.GetWidth() * bg_scale_factor,
+                                 bg_image.GetHeight() * bg_scale_factor);
+
+# Display background
+bg_sprite = Sprite(scaled_bg_image);
+bg_sprite.SetPosition(Window.GetX() + Window.GetWidth() / 2 - scaled_bg_image.GetWidth() / 2,
+                      Window.GetY() + Window.GetHeight() / 2 - scaled_bg_image.GetHeight() / 2,
+                      -10000);
+
+#------------------------------- Earth ---------------------------------------------
+earth_height = Math.Min(Window.GetWidth(), Window.GetHeight()) * 0.12;
+for (i = 0; i < 5; i++)
+  {
+    earth_image = Image("earth" + i + ".png");
+    earth_scale_factor = earth_height / earth_image.GetHeight();
+    earth_images[i] = earth_image.Scale(earth_image.GetWidth() * earth_scale_factor,
+                                        earth_image.GetHeight() * earth_scale_factor);
+  }
+
+earth_glow_index = 0;
+earth_sprite = Sprite(earth_images[earth_glow_index]);
+earth_to_edge = Math.Min(Window.GetWidth(), Window.GetHeight()) * 0.07;
+earth_x = Window.GetX() + earth_to_edge;
+earth_y = Window.GetY() + Window.GetHeight() - earth_to_edge - earth_images[0].GetHeight();
+earth_sprite.SetPosition(earth_x, earth_y, -10);
+
+#------------------------------- Planet --------------------------------------------
+planet_image = Image("planet.png");
+planet_height = Math.Min(Window.GetWidth(), Window.GetHeight()) * 0.07;
+planet_scale_factor = planet_height / planet_image.GetHeight();
+planet_image = planet_image.Scale(planet_image.GetWidth() * planet_scale_factor,
+                                  planet_image.GetHeight() * planet_scale_factor);
+planet_sprite = Sprite(planet_image);
+planet_to_edge_y = Window.GetHeight() * 0.14;
+planet_to_edge_x = Window.GetWidth() * 0.08;
+planet_x = Window.GetX() + Window.GetWidth() - planet_to_edge_x - planet_image.GetWidth();
+planet_y = Window.GetY() + planet_to_edge_y;
+planet_sprite.SetPosition(planet_x, planet_y, -10);
+
+#------------------------------- Logo ----------------------------------------------
+logo_image = Image("logo.png");
+logo_height = Math.Min(Window.GetWidth(), Window.GetHeight()) * 0.1;
+logo_scale_factor = logo_height / logo_image.GetHeight();
+logo_image = logo_image.Scale(logo_image.GetWidth() * logo_scale_factor,
+                              logo_image.GetHeight() * logo_scale_factor);
+logo_sprite = Sprite(logo_image);
+logo_to_edge = Window.GetHeight() * 0.1;
+logo_sprite.SetPosition(Window.GetX() + Window.GetWidth() - logo_to_edge - logo_image.GetWidth(),
+                        Window.GetY() + Window.GetHeight() - logo_to_edge - logo_image.GetHeight(),
+                        -10);
+
+#------------------------------- Swirl galaxies ------------------------------------
+swirlaxy_image = Image("swirlaxy.png");
+if (!(Plymouth.GetMode() == "boot" || Plymouth.GetMode == "resume"))
+  {
+    swirls[0].x = 0.1; # Percentage of screen from left when positive, or right otherwise
+    swirls[0].y = 0.1; # Percentage of screen from top when positive, or bottom otherwise
+    swirls[0].height_p = 0.21; # Percent of screen height  
+    swirls[0].angle = Math.Pi;
+    swirls[1].x = 0.54;
+    swirls[1].y = 0.14;
+    swirls[1].height_p = 0.11;
+    swirls[1].angle = Math.Pi;
+    swirls[2].x = -0.16;
+    swirls[2].y = -0.16;
+    swirls[2].height_p = 0.31;
+    swirls[2].angle = 0;
+  }
+else
+  {
+    swirls[0].x = 0.1;
+    swirls[0].y = 0.12;
+    swirls[0].height_p = 0.38;
+    swirls[0].angle = 0;
+    swirls[1].x = 0.3;
+    swirls[1].y = -0.24;
+    swirls[1].height_p = 0.065;
+    swirls[1].angle = Math.Pi;
+    swirls[2].x = -0.05;
+    swirls[2].y = -0.3;
+    swirls[2].height_p = 0.21;
+    swirls[2].angle = Math.Pi;
+  }
+for (i = 0; i < 3; i++)
+  {
+    swirl_height = Math.Min(Window.GetWidth(), Window.GetHeight()) * swirls[i].height_p;
+    swirl_width = swirl_height * swirlaxy_image.GetWidth() / swirlaxy_image.GetHeight();
+    swirl_image = swirlaxy_image.Scale(swirl_width, swirl_height);
+    swirl_image = swirl_image.Rotate(swirls[i].angle);
+    swirl_sprites[i] = Sprite();
+    if (swirls[i].x >= 0)
+      swirl_sprites[i].SetX(Window.GetX() + Window.GetWidth() * swirls[i].x);
+    else
+      swirl_sprites[i].SetX(Window.GetX() + Window.GetWidth() * (1 + swirls[i].x) - swirl_image.GetWidth());
+    if (swirls[i].y >= 0)
+      swirl_sprites[i].SetY(Window.GetY() + Window.GetHeight() * swirls[i].y);
+    else
+      swirl_sprites[i].SetY(Window.GetY() + Window.GetHeight() * (1 + swirls[i].y) - swirl_image.GetHeight());
+    swirl_sprites[i].SetImage(swirl_image);
+  }
+
+#------------------------------- Stars ---------------------------------------------
+# Load 3 star images
+star_white_image = Image("star-white.png");
+star_fuzzy_image = Image("star-fuzzy.png");
+star_red_image = Image("star-red.png");
+star_white_small_image = Image("star-white-small.png");
+star_fuzzy_small_image = Image("star-fuzzy-small.png");
+star_red_small_image = Image("star-red-small.png");
+
+# Initialize the random seed depending on the resolution
+pixels = Window.GetWidth() * Window.GetHeight();
+while (pixels % 10 == 0)
+  {
+    pixels = pixels / 10;
+    Math.Random();
+  }
+for (i = 0; i < pixels % 10; i++)
+    Math.Random();
+
+# Create all star sprites
+for (i = 0; i < NUM_STARS; i++)
+  {
+    # Randomly choose star image; white/fuzzy/red have 2/1/1 weights
+    star_type = Math.Random() * 4;
+    if (star_type < 2)
+      {
+        selected_image.big = star_white_image;
+        selected_image.small = star_white_small_image;
+      }
+    else if (star_type < 3)
+      {
+        selected_image.big = star_fuzzy_image;
+        selected_image.small = star_fuzzy_small_image;
+      }
+    else
+      {
+        selected_image.big = star_red_image;
+        selected_image.small = star_red_small_image;
+      }
+
+    # Choose random size
+    star_scaled_size = MAX_STAR_SIZE * Math.Random();
+    # Adapt the source image depending on the scale, smaller scales on big images
+    # don't render so nicely.
+    if (star_scaled_size > selected_image.small.GetHeight()
+        || star_scaled_size > selected_image.small.GetWidth())
+        star_image = selected_image.big;
+    else
+        star_image = selected_image.small;
+    transformed_image = star_image.Scale(star_scaled_size, star_scaled_size);
+
+    # Random rotation of a 5 branch stars, we only need to rotate 2 * Pi / 5 at maximum.
+    transformed_image = transformed_image.Rotate(2 * Math.Pi / 5 * Math.Random());
+    stars[i] = Sprite(transformed_image);
+
+    # Randomize position, we accept that stars may be half out of the viewport
+    # in each direction
+    star_x = Window.GetX() + Math.Random() * (Window.GetWidth() + transformed_image.GetWidth()) 
+             - transformed_image.GetWidth() / 2;
+    star_y = Window.GetY() + Math.Random() * (Window.GetHeight() + transformed_image.GetHeight()) 
+             - transformed_image.GetHeight() / 2;
+    stars[i].SetPosition(star_x, star_y, -20); # Stars go behind other elements.
+  }
+
+#------------------------------- Rocket --------------------------------------------
+# Load all rocket images for animation
+rocket_height = Math.Min(Window.GetWidth(), Window.GetHeight()) * 0.145;
+for (i = 0; i < 4; i++)
+  {
+    rocket_image = Image("rocket" + i + ".png");
+    rocket_scale_factor = rocket_height / rocket_image.GetHeight();
+    rocket_images[i] = rocket_image.Scale(rocket_image.GetWidth() * rocket_scale_factor,
+                                          rocket_image.GetHeight() * rocket_scale_factor);
+  }
+rocket_flame_index = 0;
+rocket_sprite = Sprite();
+
+# Rocket trajectory
+# Take a point somwhere in the middle to compute the parabola
+middle_x = Window.GetX() + Window.GetWidth() * 0.42;
+middle_y = Window.GetY() + Window.GetHeight() * 0.42;
+# Parabole coeffs so that y = a.x^2 + b.x + c for the earth, planet and middle points
+# Use the earth and planet centers instead of top left corner
+earth_cx = earth_x + earth_images[0].GetWidth()/2;
+earth_cy = earth_y + earth_images[0].GetHeight()/2;
+planet_cx = planet_x + planet_image.GetWidth()/2;
+planet_cy = planet_y + planet_image.GetHeight()/2;
+a = ((earth_cy-middle_y)/(earth_cx-middle_x)-(earth_cy-planet_cy)/(earth_cx-planet_cx))/(middle_x-planet_cx);
+b = (middle_y-planet_cy)/(middle_x-planet_cx)-a*(middle_x+planet_cx);
+c = earth_cy-a*earth_cx*earth_cx-b*earth_cx;
+rocket_x_start = earth_cx + Window.GetWidth() * 0.1; # Don't start right on the earth
+rocket_x_end = planet_cx - Window.GetWidth() * 0.1;  # Don't reach the planet
+
+# Set initial position
+rocket_x = rocket_x_start;
+rocket_y = a*rocket_x*rocket_x+b*rocket_x+c;
+alpha = 2*a*rocket_x + b;
+
+# Set flame status and rocket direction.
+has_rocket = 0;
+rocket_comes_back = 0;
+if (Plymouth.GetMode() == "boot")
+  {
+    has_rocket = 1;
+    rocket_comes_back = 0;
+  }
+if (Plymouth.GetMode() == "shutdown" || Plymouth.GetMode() == "suspend")
+  {
+    has_rocket = 1;
+    rocket_comes_back = 1;
+  }
+if (Plymouth.GetMode() == "resume")
+  {
+    has_rocket = 1;
+    rocket_comes_back = 0;
+  }
+
+#------------------------------- Animation -----------------------------------------
+progress = 0;
+fun refresh_callback ()
+  {
+    progress++;
+
+    # Rocket, update 50/3 times per second
+    if (progress % 3 == 0)
+      {
+        # 6 states for the rocket flame: 1, 2, 3, 4, 3, 2
+        rocket_flame_index = (rocket_flame_index + 1) % 6; 
+        rocket_image = rocket_images[3 - Math.Abs(rocket_flame_index - 3)];
+        rotated_rocket = rocket_image.Rotate(alpha);
+    
+        rocket_sprite.SetImage(rotated_rocket);
+        rocket_sprite.SetPosition(rocket_x - rotated_rocket.GetWidth()/2,
+                                  rocket_y - rotated_rocket.GetHeight()/2,
+                                  -10);
+      }
+
+    # Earth glow, update 10 times per second
+    if (earth_glow_index != 0 && progress % 5 == 0)
+      {
+        earth_glow_anim = Math.Int(3 * Math.Random()) - 1;
+        earth_glow_index = Math.Clamp(earth_glow_index + earth_glow_anim, 1, 4);
+        earth_sprite.SetImage(earth_images[earth_glow_index]);
+      }
+
+    # Stars dim, update 5 times per second
+    if (progress % 10 == 0)
+      {
+        for (i = 0; i < NUM_STARS; i++)
+          {
+            # Reset star to visible by 0.05 steps
+            star_opacity = stars[i].GetOpacity();
+            if (star_opacity < 1)
+                stars[i].SetOpacity(star_opacity + 0.05);
+
+            # 10% chance to dim the star
+            if (Math.Random() < 0.1)
+                stars[i].SetOpacity(0.8);
+          }
+      }
+  }
+  
+Plymouth.SetRefreshFunction (refresh_callback);
+
+#------------------------------- Dialogue ------------------------------------------
+
+status = "normal";
+
+fun dialog_setup()
+  {
+    local.box;
+    local.lock;
+    local.entry;
+    
+    box.image = Image("box.png");
+    lock.image = Image("lock.png");
+    entry.image = Image("entry.png");
+    
+    box.sprite = Sprite(box.image);
+    box.x = Window.GetX() + Window.GetWidth()  / 2 - box.image.GetWidth ()/2;
+    box.y = Window.GetY() + Window.GetHeight() / 2 - box.image.GetHeight()/2;
+    box.z = 10000;
+    box.sprite.SetPosition(box.x, box.y, box.z);
+    
+    lock.sprite = Sprite(lock.image);
+    lock.x = box.x + box.image.GetWidth()/2 - (lock.image.GetWidth() + entry.image.GetWidth()) / 2;
+    lock.y = box.y + box.image.GetHeight()/2 - lock.image.GetHeight()/2;
+    lock.z = box.z + 1;
+    lock.sprite.SetPosition(lock.x, lock.y, lock.z);
+    
+    entry.sprite = Sprite(entry.image);
+    entry.x = lock.x + lock.image.GetWidth();
+    entry.y = box.y + box.image.GetHeight()/2 - entry.image.GetHeight()/2;
+    entry.z = box.z + 1;
+    entry.sprite.SetPosition(entry.x, entry.y, entry.z);
+    
+    global.dialog.box = box;
+    global.dialog.lock = lock;
+    global.dialog.entry = entry;
+    global.dialog.bullet_image = Image("bullet.png");
+    dialog_opacity (1);
+  }
+    
+fun dialog_opacity(opacity)
+  {
+    dialog.box.sprite.SetOpacity (opacity);
+    dialog.lock.sprite.SetOpacity (opacity);
+    dialog.entry.sprite.SetOpacity (opacity);
+    for (index = 0; dialog.bullet[index]; index++)
+      {
+        dialog.bullet[index].sprite.SetOpacity(opacity);
+      }
+  }
+
+fun display_normal_callback ()
+  {
+    global.status = "normal";
+    if (global.dialog)
+      dialog_opacity (0);
+  }
+
+fun display_password_callback (prompt, bullets)
+  {
+    global.status = "password";
+    if (!global.dialog)
+	dialog_setup();
+    else
+	dialog_opacity(1);
+    for (index = 0; dialog.bullet[index] || index < bullets; index++)
+      {
+        if (!dialog.bullet[index])
+          {
+            dialog.bullet[index].sprite = Sprite(dialog.bullet_image);
+            dialog.bullet[index].x = dialog.entry.x + index * dialog.bullet_image.GetWidth();
+            dialog.bullet[index].y = dialog.entry.y + dialog.entry.image.GetHeight() / 2 - dialog.bullet_image.GetHeight() / 2;
+            dialog.bullet[index].z = dialog.entry.z + 1;
+            dialog.bullet[index].sprite.SetPosition(dialog.bullet[index].x, dialog.bullet[index].y, dialog.bullet[index].z);
+          }
+        if (index < bullets)
+          dialog.bullet[index].sprite.SetOpacity(1);
+        else
+          dialog.bullet[index].sprite.SetOpacity(0);
+      }
+  }
+
+Plymouth.SetDisplayNormalFunction(display_normal_callback);
+Plymouth.SetDisplayPasswordFunction(display_password_callback);
+
+#------------------------------- Progress Bar ------------------------------------------
+# No "progress bar" per se, we use the rocket position
+
+fun progress_callback (duration, progress)
+  {
+    if (rocket_comes_back)
+      {
+        # Rocket position
+        rocket_x = rocket_x_end - progress * (rocket_x_end - rocket_x_start);
+        rocket_y = a*rocket_x*rocket_x + b*rocket_x + c;
+        # Rocket orientation
+        alpha = Math.ATan2(2*a*rocket_x + b, 1) + Math.Pi;
+      }
+    else
+      {
+        # Rocket position
+        rocket_x = rocket_x_start + progress * (rocket_x_end - rocket_x_start);
+        rocket_y = a*rocket_x*rocket_x + b*rocket_x + c;
+        # Rocket orientation
+        alpha = Math.ATan2(2*a*rocket_x + b, 1);
+      }
+  }
+
+Plymouth.SetBootProgressFunction(progress_callback);
+
+#------------------------------- Root filesystem mount ---------------------------------
+
+fun root_mounted_callback ()
+  {
+    # On boot show earth glow starting when root filesystem is mounted
+    earth_glow_index = 1;
+  }
+
+Plymouth.SetRootMountedFunction(root_mounted_callback);
+
+#------------------------------- Quit --------------------------------------------------
+
+fun quit_callback ()
+  {
+  }
+
+Plymouth.SetQuitFunction(quit_callback);
+
+#------------------------------- Message -----------------------------------------------
+
+msg_sprites; # Declare global variable
+num_displayed_msg = 0; # Current number of message being displayed
+next_msg_idx = 0; # Index of the message to be displayed next in the msg_sprites table
+next_msg_y; # Y of next message to display
+fun message_callback (text)
+  {
+    if (num_displayed_msg < MAX_MSG_DISPLAYED)
+      {
+        # We've not reached max number of messages
+        # Compute next y
+        next_msg_y = 10;
+        for (i = 0; i < num_displayed_msg; i++)
+          next_msg_y += msg_sprites[i].GetImage().GetHeight() + 1; # 1px between lines
+        num_displayed_msg++;
+      }
+    else
+      {
+        # We've reached max number of messages
+        # Move all existing messages one line up
+        move_y_by = -1 - msg_sprites[(next_msg_idx + 1) % MAX_MSG_DISPLAYED].GetImage().GetHeight();
+	for (i = 0; i < MAX_MSG_DISPLAYED; i++)
+          {
+            msg = msg_sprites[(next_msg_idx + 1 + i) % MAX_MSG_DISPLAYED];
+            msg.SetY(msg.GetY() + move_y_by);
+          }
+      }
+    next_msg_image = Image.Text(text, 1, 1, 1, 1);
+    msg_sprites[next_msg_idx] = Sprite();
+    msg_sprites[next_msg_idx].SetPosition(Window.GetX() + 10, Window.GetY() + next_msg_y, 10000);
+    msg_sprites[next_msg_idx].SetImage(next_msg_image);
+
+    next_msg_idx = (next_msg_idx + 1) % MAX_MSG_DISPLAYED;
+  }
+
+Plymouth.SetMessageFunction(message_callback);

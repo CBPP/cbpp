@@ -1,0 +1,13 @@
+Package: thunar-dropbox-plugin
+Version: 0.2.0-1
+Architecture: i386
+Maintainer: Philip Newborough <corenominal@corenominal.org>
+Installed-Size: 95
+Depends: libatk1.0-0 (>= 1.12.4), libc6 (>= 2.3.6-6~), libcairo2 (>= 1.2.4), libfontconfig1 (>= 2.8.0), libfreetype6 (>= 2.2.1), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.8.0), libpango1.0-0 (>= 1.14.0), libthunarx-2-0 (>= 1.1.0), thunar
+Section: misc
+Priority: extra
+Homepage: http://softwarebakery.com/maato/thunar-dropbox.html
+Description: context-menu items from dropbox for Thunar
+ Thunar Dropbox is a plugin for thunar that adds context-menu
+ items from dropbox. This plugin does not come with dropbox itself,
+ you will need to install that separately.

@@ -1,0 +1,45 @@
+#!/bin/sh -e
+
+
+
+if [ "$1" = "remove" ] || [ "$1" = "deconfigure" ]; then
+    # remove background alternatives
+    update-alternatives --remove desktop-background \
+        /usr/share/images/desktop-base/spacefun-wallpaper.svg
+
+    update-alternatives --remove desktop-background \
+        /usr/share/images/desktop-base/spacefun-wallpaper-widescreen.svg
+
+    update-alternatives --remove desktop-background \
+        /usr/share/images/desktop-base/moreblue-orbit-wallpaper.svg
+
+    update-alternatives --remove desktop-background \
+        /usr/share/images/desktop-base/moreblue-orbit-wallpaper-widescreen.svg
+
+    update-alternatives --remove desktop-background \
+        /usr/share/images/desktop-base/nightly-wallpaper.png
+
+    update-alternatives --remove desktop-background \
+        /usr/share/images/desktop-base/debian-blueish-wallpaper.svg
+
+    # remove splash alternatives
+    update-alternatives --remove desktop-splash \
+        /usr/share/images/desktop-base/spacefun-splash.svg
+
+    update-alternatives --remove desktop-splash \
+        /usr/share/images/desktop-base/moreblue-orbit-splash.png
+
+    update-alternatives --remove desktop-splash \
+        /usr/share/images/desktop-base/gnome-splash-curves.png
+
+    # remove grub alternatives
+    update-alternatives --remove desktop-grub \
+        /usr/share/images/desktop-base/spacefun-grub.png
+
+    update-alternatives --remove desktop-grub \
+        /usr/share/images/desktop-base/spacefun-grub-widescreen.png
+
+    update-alternatives --remove desktop-grub \
+        /usr/share/images/desktop-base/moreblue-orbit-grub.png
+fi
+

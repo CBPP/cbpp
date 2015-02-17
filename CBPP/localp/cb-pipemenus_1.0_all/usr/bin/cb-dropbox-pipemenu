@@ -1,0 +1,201 @@
+#!/bin/sh
+# --------------------------------------------------------------------
+# An Openbox pipemenu for use with Dropbox and CrunchBang Linux.
+# Written for CrunchBang Linux <http://crunchbanglinux.org/>
+# by Philip Newborough (aka corenominal) <mail@philipnewborough.co.uk>
+# --------------------------------------------------------------------
+# Set some variables
+USERDBDIR='/home/'$USER'/.dropbox-dist'
+TMPFILE='/tmp/'$USERNAME'_cbdropbox'
+# --------------------------------------------------------------------
+# manipulation
+# --------------------------------------------------------------------
+if [ "$1" = "--start-dropbox" ]; then
+    $USERDBDIR/dropboxd &
+    exit 0
+fi
+if [ "$1" = "--stop-dropbox" ]; then
+    killall dropbox
+    exit 0
+fi
+# --------------------------------------------------------------------
+# installation
+# --------------------------------------------------------------------
+if [ "$1" = "--install-dropbox" ]; then
+    zenity --question --title="Dropbox Installation" --text "This script will install Dropbox.\nDo you want to proceed?"
+    if [ $? = 1 ]; then
+        exit 0
+    fi
+
+    cd /home/$USER
+    
+    platform=`uname -m | tr '[A-Z]' '[a-z]'`
+    case $platform in
+    "x86_64")
+        #DROPBOXURL="http://packages.crunchbang.org/waldorf-files/dropbox/64/dropbox.tar.gz"
+        DROPBOXURL="https://www.dropbox.com/download?plat=lnx.x86_64"
+        ;;
+    *)
+        #DROPBOXURL="http://packages.crunchbang.org/waldorf-files/dropbox/32/dropbox.tar.gz"
+        DROPBOXURL="https://www.dropbox.com/download?plat=lnx.x86"
+        ;;
+    esac
+    
+    
+    curl -s -I  $DROPBOXURL > $TMPFILE
+	CURLRESULT=`echo $?`
+	if [ $CURLRESULT = "0" ]; then
+		
+		RESPONSE=`head -n 1 $TMPFILE | awk '{ print $2 }'`
+		
+		#if [ $RESPONSE -ne "200" ]; then
+		if [ $RESPONSE -ne "302" ]; then
+			
+			zenity --warning --title="Dropbox Installation" --text "Error, failed to contact server. Please try again later."
+			exit 1
+		
+		else
+			
+			wget "$DROPBOXURL" 2>&1 | \
+             sed -u 's/^.* \+\([0-9]\+%\) \+\([0-9.]\+[GMKB]\) \+\([0-9hms.]\+\).*$/\1\n# Downloading... \2 (\3)/' | \
+             zenity --progress --title='Installing Dropbox' --auto-kill --auto-close
+			
+		fi
+
+	else
+
+        zenity --warning --title="Dropbox Installation" --text "Error, failed to contact server. Please try again later."
+		exit 1
+
+	fi
+	
+	#rename binary
+	if [ -f /home/$USER/download?plat=lnx.x86_64 ]; then
+		mv /home/$USER/download?plat=lnx.x86_64 /home/$USER/dropbox.tar.gz
+	fi
+	if [ -f /home/$USER/download?plat=lnx.x86 ]; then
+		mv /home/$USER/download?plat=lnx.x86 /home/$USER/dropbox.tar.gz
+	fi
+    sleep 1s
+
+    #extract binary
+    tar -xf dropbox.tar.gz
+    #delete binary
+    rm dropbox.tar.gz
+    
+    #quick sanity check
+    if [ ! -x "$USERDBDIR/dropboxd" ]; then
+        zenity --warning --title="Dropbox Installation" --text "Oops! There was an error, Dropbox could not be installed. Sorry."
+        exit 1
+    fi
+    zenity --info --title="Dropbox Installation" --text "Dropbox has been installed to:\n$USERDBDIR"
+    zenity --question --title="Dropbox Installation" --text "Dropbox can be started automatically when you start your session. Would you like to autostart Dropbox when you login?"
+    if [ $? != 1 ]; then
+        ans=$(zenity  --title="Dropbox Installation" --list  --text "It is a good idea to add a delay before autostarting Dropbox\nso that your system can establish a working network connection.\n\nSelect the number of seconds to delay Dropbox autostarting.\nClick \"Cancel\" if you do not want to add a delay." \
+        --radiolist  --column "Pick" --column "Seconds:" FALSE 10 FALSE 20 FALSE 30 FALSE 40 FALSE 50 TRUE 60);
+        if [ "$ans" != "" ]; then
+            echo $ans
+            echo "" >> /home/$USER/.config/openbox/autostart
+            echo "# Autostart the Dropbox deamon" >> /home/$USER/.config/openbox/autostart
+            echo "(sleep "$ans"s && ~/.dropbox-dist/dropboxd) &" >> /home/$USER/.config/openbox/autostart
+            echo "" >> /home/$USER/.config/openbox/autostart
+        else
+            echo "" >> /home/$USER/.config/openbox/autostart
+            echo "# Autostart the Dropbox deamon" >> /home/$USER/.config/openbox/autostart
+            echo "~/.dropbox-dist/dropboxd &" >> /home/$USER/.config/openbox/autostart
+            echo "" >> /home/$USER/.config/openbox/autostart
+        fi
+    fi
+    zenity --question --title="Dropbox Installation" --text "Do you wish to start the Dropbox client now?"
+    if [ $? = 1 ]; then
+        exit 0
+    fi
+    $USERDBDIR/dropboxd &
+    exit 0
+fi
+# --------------------------------------------------------------------
+# pipemenu stuff
+# --------------------------------------------------------------------
+# Check if user has installed Dropbox and offer to install it if not
+if [ ! -d $USERDBDIR ]; then
+    cat << _dropboxnotinstalledmenu_
+    <openbox_pipe_menu>
+	    <item label="Install Dropbox">
+            <action name="Execute">
+				<command>
+					cb-dropbox-pipemenu --install-dropbox
+				</command>
+			</action>
+		</item>
+		<separator/>
+		<item label="Find out more about Dropbox">
+            <action name="Execute">
+				<command>
+					x-www-browser http://db.tt/5mJg9lb
+				</command>
+			</action>
+		</item>
+		<item label="Dropbox Terms">
+            <action name="Execute">
+				<command>
+					x-www-browser https://www.dropbox.com/terms
+				</command>
+			</action>
+		</item>
+    </openbox_pipe_menu>
+_dropboxnotinstalledmenu_
+    exit 0
+else
+    echo "<openbox_pipe_menu>"
+    if [ -d /home/$USER/Dropbox ]; then
+        cat << _dropboxhomedirlink_
+        <item label="Open Dropbox Folder">
+            <action name="Execute">
+				<command>
+					thunar /home/$USER/Dropbox
+				</command>
+			</action>
+		</item>
+_dropboxhomedirlink_
+    fi
+    if [ ! "$(pidof dropbox)" ]; then
+        cat << _startdropbox_
+        <item label="Start Dropbox">
+            <action name="Execute">
+				<command>
+					cb-dropbox-pipemenu --start-dropbox
+				</command>
+			</action>
+		</item>
+_startdropbox_
+    else
+    cat << _stopdropbox_
+        <item label="Stop Dropbox">
+            <action name="Execute">
+				<command>
+					cb-dropbox-pipemenu --stop-dropbox
+				</command>
+			</action>
+		</item>
+_stopdropbox_
+    fi
+    cat << _dropboxinfomenu_
+    <separator/>
+		<item label="Launch Dropbox Website">
+            <action name="Execute">
+				<command>
+					x-www-browser https://www.dropbox.com/home
+				</command>
+			</action>
+		</item>
+		<item label="Dropbox Terms">
+            <action name="Execute">
+				<command>
+					x-www-browser https://www.dropbox.com/terms
+				</command>
+			</action>
+		</item>
+    </openbox_pipe_menu>
+_dropboxinfomenu_
+    exit 0
+fi

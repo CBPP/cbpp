@@ -1,0 +1,54 @@
+clear
+
+echo "  -----------------------------[ screen $STEP of $STEPS ]----------------------------
+
+  INSTALL LAMP STACK
+  ------------------
+  Would you like to install Apache2 webserver with PHP scripting support and
+  MySQL database server? If you choose to do this, the following package
+  will be installed:
+
+      cb-meta-lamp
+
+  Note: additional packages listed as dependencies will also be installed."
+
+if prompt "  Would you like to install LAMP stack?"; then
+	sudo apt-get install -y cb-meta-lamp
+
+	# Enable modrewrite - does this work?
+	if [ -d /etc/apache2/sites-available ]; then
+		A2D="/etc/apache2/sites-available"
+		if [ -f "$A2D/default" ]; then
+			sudo touch $A2D/default2
+			sudo chown $USER:$USER $A2D/default2
+			sudo chown $USER:$USER $A2D/default
+			sudo cat $A2D/default | sed '9,14 s/AllowOverride None/AllowOverride All/' >$A2D/default2
+			sudo mv -f $A2D/default2 $A2D/default
+			sudo chown root:root $A2D/default
+			sudo a2enmod rewrite
+			sudo /etc/init.d/apache2 restart
+		fi
+	fi
+		
+	clear
+		
+	echo "  INSTALL LAMP STACK - CONTINUED
+  ------------------------------
+  Would you like to create a symlink within Apache's document root directory
+  to a directory within your home directory? If you do this, you will be able
+  to access your web development documents from the address:
+
+      http://localhost/$USER/
+
+  The file path will be: /home/$USER/htdocs
+
+  Note: if this system is used by multiple users, you may want to consider
+  using apache2's 'userdir' module instead."
+  
+	if prompt "  Would you like to create the symlink?"; then
+		if [ ! -d "/home/$USER/htdocs" ]; then
+			mkdir /home/$USER/htdocs
+		fi
+		sudo ln -s /home/$USER/htdocs /var/www/$USER
+	fi
+fi

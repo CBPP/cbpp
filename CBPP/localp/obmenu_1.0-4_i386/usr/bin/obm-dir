@@ -1,0 +1,81 @@
+#!/usr/bin/python -O
+#########################################################################
+#  Copyright 2005 Manuel Colmenero 
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program; if not, write to the Free Software
+#    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+########################################################################
+
+# This is an example of what the obxml module can do
+
+import obxml, sys, os, time
+
+def alfabetiza(lista):
+	dic = {}
+	
+	for each in lista:
+		k = each[0].lower()
+		if not dic.has_key(k):
+			dic[k] = [each]
+		else:
+			dic[k].append(each)
+			
+	for key in dic.keys():
+		dic[key].sort()
+		
+	return dic
+			
+		
+def clasifica(lista, humbral):
+	lgrupos = []
+	if len(lista) / humbral > 1:
+		grupo = []
+		n = 0
+		primera = ""
+		alf = alfabetiza(lista)
+		ids = alf.keys()
+		ids.sort()
+		for k in ids:
+			if primera == "": primera = k
+			grupo = grupo + alf[k]
+			n += len(alf[k])
+			if n / humbral >= 1:
+				lgrupos.append( ( "%s-%s" % (primera, k), grupo) )
+				primera = ""
+				grupo = []
+				n = 0
+		if n != 0:
+			lgrupos.append( ( "%s-%s" % (primera, k), grupo) )
+		return lgrupos
+	
+menu = obxml.ObMenu()
+menu.newPipe()
+
+if len(sys.argv) == 3:
+	vmenu = clasifica(
+		[unicode(each, "utf-8", errors='ignore') for each in os.listdir(sys.argv[1])],10)
+else:
+	menu.createItem(None, "ERROR: Wrong number of arguments:", "Execute", "true")
+	menu.createItem(None, "%s /path/to/directory command" % (sys.argv[0]), "Execute", "true")
+	menu.printXml()
+	sys.exit(1)
+
+for m in vmenu:
+	(mid, lst) = m
+	menu.createMenu(None, mid, mid)
+	for itm in lst:
+		menu.createItem(mid, itm, "execute", sys.argv[2] + " " + ("\"" + sys.argv[1] + "/" + itm + "\""))
+
+menu.printXml()

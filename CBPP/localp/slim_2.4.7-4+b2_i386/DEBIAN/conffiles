@@ -1,0 +1,6 @@
+/etc/init/slim.conf
+/etc/slim.conf
+/etc/X11/Xsession.d/20slim_locale
+/etc/logrotate.d/slim
+/etc/init.d/slim
+/etc/pam.d/slim

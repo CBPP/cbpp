@@ -1,0 +1,39 @@
+#!/bin/sh
+
+set -e
+
+DEFAULT_DISPLAY_MANAGER_FILE=/etc/X11/default-display-manager
+
+if [ "$1" = "abort-install" ] || [ "$1" = "abort-upgrade" ]; then
+  if [ -e "$DEFAULT_DISPLAY_MANAGER_FILE.dpkg-tmp" ]; then
+    mv "$DEFAULT_DISPLAY_MANAGER_FILE.dpkg-tmp" "$DEFAULT_DISPLAY_MANAGER_FILE"
+  fi
+fi
+
+if [ "$1" = "purge" ] ; then
+  update-rc.d slim remove >/dev/null
+fi
+
+# Automatically added by dh_systemd_enable
+if [ "$1" = "remove" ]; then
+	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+		deb-systemd-helper mask slim.service >/dev/null
+	fi
+fi
+
+if [ "$1" = "purge" ]; then
+	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+		deb-systemd-helper purge slim.service >/dev/null
+		deb-systemd-helper unmask slim.service >/dev/null
+	fi
+fi
+# End automatically added section
+# Automatically added by dh_installdebconf
+if [ "$1" = purge ] && [ -e /usr/share/debconf/confmodule ]; then
+	. /usr/share/debconf/confmodule
+	db_purge
+fi
+# End automatically added section
+
+
+exit 0

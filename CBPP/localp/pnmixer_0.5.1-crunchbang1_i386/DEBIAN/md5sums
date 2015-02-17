@@ -1,0 +1,15 @@
+8f06292c89bcdb377f66063b2812859e  usr/bin/pnmixer
+62adac915d23f8faf32d9fa58e443ba0  usr/share/applications/pnmixer.desktop
+9c29861f80b3823014fa0f5df29e2383  usr/share/doc/pnmixer/changelog.Debian.gz
+21c9384eb0dcabe507599bbfaed3dec0  usr/share/doc/pnmixer/changelog.gz
+ac3c870b64160380487297b694a8043b  usr/share/doc/pnmixer/copyright
+ea65da55b66a918e455ccf3a30c0a198  usr/share/locale/de/LC_MESSAGES/pnmixer.mo
+1a0cbbf01f00865fb5c5a77506c1caeb  usr/share/locale/fr/LC_MESSAGES/pnmixer.mo
+bcb3329ed06d102728f134ddeadb0aae  usr/share/pnmixer/pixmaps/pnmixer-about.png
+c1f6815265fb5ca9a16362d3545e1d98  usr/share/pnmixer/pixmaps/pnmixer-high.png
+ba60f65bc93206b3b9bd966b600632e9  usr/share/pnmixer/pixmaps/pnmixer-low.png
+4c8d2195f04325bd82425e723b877c28  usr/share/pnmixer/pixmaps/pnmixer-medium.png
+96f50262fcfddff837b60542b5b7373c  usr/share/pnmixer/pixmaps/pnmixer-muted.png
+7bfd6641fa6b16d926daf512e237d28d  usr/share/pnmixer/ui/about.xml
+70639788f161af86681edaf6064b3397  usr/share/pnmixer/ui/popup_window.xml
+b0bdfce0376075fd78ba826931d6d9e7  usr/share/pnmixer/ui/prefs.xml

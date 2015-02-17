@@ -1,0 +1,8 @@
+[KdmGreeterTheme]
+Encoding=UTF-8
+Greeter=nightly.xml
+Name=Nightly
+Description=Nightly KDM Theme
+Author=Robert Jaehne
+Copyright=(c) 2008 Robert Jaehne <robert@jaehne.bz>
+Screenshot=screenshot.png

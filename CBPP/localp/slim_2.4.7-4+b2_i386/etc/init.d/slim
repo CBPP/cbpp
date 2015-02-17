@@ -1,0 +1,73 @@
+#!/bin/sh
+
+# Largely adapted from xdm's init script:
+# Copyright 1998-2002, 2004, 2005 Branden Robinson <branden@debian.org>.
+# Copyright 2006 Eugene Konev <ejka@imfi.kspu.ru>
+
+### BEGIN INIT INFO
+# Provides:          slim
+# Required-Start:    dbus $local_fs $remote_fs
+# Required-Stop:     $local_fs $remote_fs
+# Should-Start:      xfs $named slapd
+# Should-Stop:       xfs $named slapd
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start daemon at boot time
+# Description:	     Debian init script for the SLiM.
+### END INIT INFO
+
+test -z "$HEED_DEFAULT_DISPLAY_MANAGER" && HEED_DEFAULT_DISPLAY_MANAGER=true
+DEFAULT_DISPLAY_MANAGER_FILE=/etc/X11/default-display-manager
+
+NAME="slim"
+DESC="X display manager"
+DAEMON=/usr/bin/slim
+PIDFILE=/var/run/slim.lock
+
+SSD_START_ARGS="--pidfile $PIDFILE --name $(basename $DAEMON) --startas $DAEMON -- -d"
+SSD_STOP_ARGS="--pidfile $PIDFILE --name $(basename $DAEMON) --retry TERM/5/TERM/5"
+
+test -x $DAEMON || exit 0
+. /lib/lsb/init-functions
+
+case $1 in
+  start)
+    if [ "$HEED_DEFAULT_DISPLAY_MANAGER" = "true" ] &&
+       [ -e $DEFAULT_DISPLAY_MANAGER_FILE ] &&
+       [ "$(cat $DEFAULT_DISPLAY_MANAGER_FILE)" != "$DAEMON" ]; then
+       log_daemon_msg "Not starting $DESC ($NAME); it is not the default display manager." "$NAME"
+    else
+      log_daemon_msg "Starting $NAME" "$NAME"
+      start-stop-daemon --start --quiet $SSD_START_ARGS
+      log_end_msg $?
+    fi
+  ;;
+
+  stop)
+    log_daemon_msg "Stopping $DESC" "$NAME"
+    start-stop-daemon --stop --quiet $SSD_STOP_ARGS
+    log_end_msg $?
+    rm -f $PIDFILE
+  ;;
+
+  restart)
+    $0 stop
+    sleep 2
+    $0 start
+  ;;
+
+  force-reload)
+    /etc/init.d/slim restart
+  ;;
+
+  status)
+    status_of_proc /usr/bin/$NAME $NAME
+  ;;
+
+  *)
+    echo "Usage: /etc/init.d/slim {start|stop|restart|force-reload|status}"
+    exit 1
+  ;;
+esac
+
+# End of file

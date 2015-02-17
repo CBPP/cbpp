@@ -1,0 +1,13 @@
+This application allows you to capture the entire screen, the active 
+window or a selected region. You can set the delay that elapses 
+before the screenshot is taken and the action that will be done with 
+the screenshot: save it to a PNG file, copy it to the clipboard, open 
+it using another application, or host it on ZimageZ, a free online 
+image hosting service.
+
+A plugin for the Xfce panel is also available.
+
+You can grab the development version on git.xfce.org by running:
+git clone http://git.xfce.org/git/apps/xfce4-screenshooter/
+
+The documentation is available in the doc/ folder of the source tree.

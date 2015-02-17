@@ -1,0 +1,10 @@
+Package: crunchbang-wallpapers
+Version: 1.0-1
+Architecture: all
+Maintainer: Philip Newborough (aka corenominal) <mail@philipnewborough.co.uk>
+Installed-Size: 2256
+Section: x11
+Priority: extra
+Homepage: http://crunchbanglinux.org/
+Description: A selection of wallpapers
+ Images for use as backgrounds with CrunchBang Linux.

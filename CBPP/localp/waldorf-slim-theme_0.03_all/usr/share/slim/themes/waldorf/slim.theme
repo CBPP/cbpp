@@ -1,0 +1,38 @@
+# CrunchBang theme for SLiM
+# by corenominal <corenominal@corenominal.org>
+
+# Messages (ie: shutdown)
+msg_color               #D8D8D8
+msg_font                Liberation Mono:size=12:dpi=75
+msg_x                   20%
+msg_y                   40%
+msg_shadow_color #D8D8D8
+msg_shadow_xoffset 1
+msg_shadow_yoffset 1
+
+# valid values: stretch, tile
+background_style        tile
+background_color        #2E3436
+
+# Input controls
+input_panel_x           20%
+input_panel_y           50%
+input_name_x            59
+input_name_y            161
+input_font              Liberation Sans:size=12:dpi=75
+input_fgcolor           #151617
+
+# Username / password request
+username_font           Liberation Mono:size=12:dpi=75
+#username_color          #D8D8D8
+username_color          #656667
+username_x              50%
+username_y              122
+password_x              50%
+password_y              122
+username_shadow_color   #2E3436
+username_shadow_xoffset 0
+username_shadow_yoffset 0
+
+username_msg            U    S    E    R    N    A    M    E
+password_msg            P    A    S    S    W    O    R    D

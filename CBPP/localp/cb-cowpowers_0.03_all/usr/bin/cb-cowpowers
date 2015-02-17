@@ -1,0 +1,19 @@
+#!/bin/bash
+# cb-cowpowers - hacks for CrunchBang LiveCD sessions
+# ---------------------------------------------------
+if [ -d /live/overlay ]; then
+	# Fix for gksudo in LiveCD
+	xhost +local:
+
+    # Keyboard
+    # ------------------------------------------------------------------
+    # Set-up keyboard maps and systemtray switcher
+    # tip - quickly toggle between keyboard maps by holding both shift keys!
+    setxkbmap -option grp:switch,grp:shifts_toggle,grp_led:scroll us,gb,de,fr &
+    (sleep 1s && fbxkb) &
+    # ^^ note: if using the LiveCD, you can also change to a different
+    #          keyboard map by entering the terminal command:
+    #              setxkbmap xx
+    #          Where "xx" is the 2 letter country code.
+fi
+exit 0

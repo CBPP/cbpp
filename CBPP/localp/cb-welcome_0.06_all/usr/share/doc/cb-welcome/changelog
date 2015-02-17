@@ -1,0 +1,45 @@
+cb-welcome (0.06) unstable; urgency=low
+
+  * Switch all hardcoded deps to new metapackages.
+  * Update standards version to 3.9.4.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Sun, 13 Jan 2013 10:43:39 +0000
+
+cb-welcome (0.05) unstable; urgency=low
+
+  [ Jason Liquorish ]
+  * Fixed issue #3 - improve user prompts.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Sun, 06 Jan 2013 19:00:07 +0000
+
+cb-welcome (0.04) unstable; urgency=low
+
+  * Add cb-pipemenus to depends.
+  Giorgi Tavkelishvili:
+  * Modified 'check-internet-connection' script to use the reliable
+    wget method instead of unreliable ping.
+  * Modified 'cb-welcome' script to use 'connectiontest' function
+    from /usr/bin/cb-include.cfg.
+  * Removed obsolete 'check-internet-connection' script.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Wed, 25 Jul 2012 10:57:14 +0100
+
+cb-welcome (0.03) unstable; urgency=low
+
+  * devel-install-version-control-tools:
+    - add git-gui git-svn git-cvs git-email thunar-vcs-plugin
+
+ -- Philip Newborough <corenominal@corenominal.org>  Fri, 20 Apr 2012 09:30:51 +0100
+
+cb-welcome (0.02) unstable; urgency=low
+
+  * Only run if member of sudo group.
+  * devel-install-packaging-tools: s/diff/diffutils/
+
+ -- Philip Newborough <corenominal@corenominal.org>  Mon, 16 Apr 2012 11:28:48 +0100
+
+cb-welcome (0.01) unstable; urgency=low
+
+  * Initial release.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Mon, 16 Apr 2012 11:28:48 +0100

@@ -1,0 +1,111 @@
+#!/bin/bash
+# Post installation script
+# ------------------------
+# First run
+if [ "$1" = "--firstrun" ]; then
+    if [ -d /live/overlay ]; then
+        exit 0    
+    fi
+    if [ -e "/home/$USER/.config/crunchbang/cb-welcome" ]; then
+        exit 0
+    else
+        if ! echo `groups` | grep "sudo" >/dev/null; then
+            # Create flag
+            if [ ! -d "/home/$USER/.config/crunchbang" ]; then
+                mkdir /home/$USER/.config/crunchbang
+            fi
+            if [ ! -f "/home/$USER/.config/crunchbang/cb-welcome" ]; then
+                 touch /home/$USER/.config/crunchbang/cb-welcome
+            fi
+            exit 0
+        fi
+	if [ -x "/usr/bin/terminator" ];then
+            terminator --title="#! Post-installation Script" --command="cb-welcome"
+            exit 0
+        fi
+    fi
+fi
+# Open in terminator
+if [ "$1" = "--open" ]; then
+    if [ -x "/usr/bin/terminator" ];then
+        terminator --title="#! Post-installation Script" --command="cb-welcome"
+        exit 0
+    fi
+fi
+# Create flag
+if [ ! -d "/home/$USER/.config/crunchbang" ]; then
+    mkdir /home/$USER/.config/crunchbang
+fi
+if [ ! -f "/home/$USER/.config/crunchbang/cb-welcome" ]; then
+    touch /home/$USER/.config/crunchbang/cb-welcome
+fi
+
+if ! echo `groups` | grep "sudo" >/dev/null; then
+  echo "Error: must be a member of the sudo group to run this script."
+  exit 0
+fi
+
+# Vars
+LIBDIR="/usr/lib/lib-cb-welcome"
+STEP="0"
+STEPS=`ls -1 $LIBDIR | wc -l`
+# Importing variables and functions from cb-include.cfg
+if [[ -f /usr/bin/cb-include.cfg ]]
+then
+    source "/usr/bin/cb-include.cfg"
+else
+    echo "Error: Failed to locate cb-include.cfg"
+    exit 1
+fi
+
+# Import prompt
+if [[ -f "${LIBDIR}/prompt" ]]; then
+	source "${LIBDIR}/prompt"
+else
+	echo "Error: Failed to locate prompt"
+	exit 1
+fi
+
+# Run through steps
+STEP=$((STEP+1))
+. $LIBDIR/intro
+
+connectiontest
+
+STEP=$((STEP+1))
+. $LIBDIR/apt-update
+
+STEP=$((STEP+1))
+. $LIBDIR/apt-dist-upgrade
+
+STEP=$((STEP+1))
+. $LIBDIR/install-printer-packages
+
+STEP=$((STEP+1))
+. $LIBDIR/install-java-packages
+
+STEP=$((STEP+1))
+. $LIBDIR/install-libreoffice
+
+STEP=$((STEP+1))
+. $LIBDIR/devel
+
+if [ "$DEVEL" != true ]; then
+    . $LIBDIR/fini
+    exit 0
+fi
+
+STEP=$((STEP+1))
+. $LIBDIR/devel-install-version-control-tools
+
+STEP=$((STEP+1))
+. $LIBDIR/devel-install-ssh-server
+
+STEP=$((STEP+1))
+. $LIBDIR/devel-install-lamp-stack
+
+STEP=$((STEP+1))
+. $LIBDIR/devel-install-packaging-tools
+
+. $LIBDIR/fini
+exit 0

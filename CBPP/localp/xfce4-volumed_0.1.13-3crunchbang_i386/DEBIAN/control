@@ -1,0 +1,13 @@
+Package: xfce4-volumed
+Version: 0.1.13-3crunchbang
+Architecture: i386
+Maintainer: Debian Xfce Maintainers <pkg-xfce-devel@lists.alioth.debian.org>
+Installed-Size: 81
+Depends: libc6 (>= 2.3.6-6~), libglib2.0-0 (>= 2.16.0), libgstreamer-plugins-base0.10-0 (>= 0.10.14), libgstreamer0.10-0 (>= 0.10.0), libgtk2.0-0 (>= 2.8.0), libkeybinder0 (>= 0.2.2), libnotify4 (>= 0.7.0), libxfconf-0-2 (>= 4.6.0), gstreamer0.10-alsa | gstreamer0.10-audiosink
+Section: xfce
+Priority: optional
+Homepage: http://goodies.xfce.org/projects/applications/xfce4-volumed
+Description: volume keys daemon
+ This is a volume keys control daemon for Xfce Desktop environment. It controls
+ the volume using multimedia keys, for the card configured in xfce4-mixer. It
+ also provides volume change notifications.

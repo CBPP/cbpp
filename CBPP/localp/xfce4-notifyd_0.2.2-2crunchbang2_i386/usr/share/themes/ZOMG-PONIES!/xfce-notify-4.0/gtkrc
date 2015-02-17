@@ -1,0 +1,23 @@
+style "ponies-window"
+{
+    bg[NORMAL] = "#ff69b4"
+    XfceNotifyWindow::border-color = "#ffff00"
+    XfceNotifyWindow::border-radius = 10.0
+    XfceNotifyWindow::border-width = 6.0
+}
+class "XfceNotifyWindow" style "ponies-window"
+
+style "ponies-text"
+{
+    font_name = "Comic Sans MS 26"
+    fg[NORMAL] = "#ffff00"
+    GtkWidget::link-color = "#c17800"
+}
+widget_class "XfceNotifyWindow.*.<GtkLabel>" style "ponies-text"
+
+style "ponies-btn"
+{
+    bg[NORMAL] = "#9400d3"
+    bg[PRELIGHT] = "#5e0086"
+}
+widget "XfceNotifyWindow.*.GtkButton" style "ponies-btn"

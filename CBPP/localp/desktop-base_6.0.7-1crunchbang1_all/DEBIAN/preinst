@@ -1,0 +1,74 @@
+#!/bin/sh -e
+
+
+if dpkg-maintscript-helper supports rm_conffile 2>/dev/null; then
+  dpkg-maintscript-helper rm_conffile /etc/kde3/kdeglobals 6.0.1 -- "$@"
+fi
+
+if [ "${1}" = "upgrade" ]; then
+    if dpkg --compare-versions ${2} lt 0.3.11 && dpkg --compare-versions ${2} gt 0.3.5; then
+        update-alternatives --remove gnome-splash \
+            /usr/share/images/desktop-base/Splash-Debian.png
+        update-alternatives --remove gnome-splash \
+            /usr/share/images/desktop-base/Splash-EvolvingTux.png
+        update-alternatives --remove gnome-splash \
+            /usr/share/images/desktop-base/Splash-Debian_red.png
+
+        dpkg-divert --package desktop-base --rename \
+            --divert /usr/share/pixmaps/splash/gnome-splash.png.orig \
+            --remove /usr/share/pixmaps/splash/gnome-splash.png
+    fi
+fi
+
+same_conffile() {
+  CONFFILE="$1"
+  if [ -e "$CONFFILE" ]; then
+    md5sum="`md5sum \"$CONFFILE\" | sed -e \"s/ .*//\"`"
+    old_md5sum="`dpkg-query -W -f='${Conffiles}' desktop-base | sed -n -e \"\\\\' $CONFFILE '{s/ obsolete$//;s/.* //p}\"`"
+    [ "$md5sum" = "$old_md5sum" ]
+    return
+  fi
+  return 1
+}
+
+case "$1" in
+  install|upgrade)
+    if dpkg --compare-versions "$2" lt "5.0.2"; then
+      # if the folder is a symlink (installed by splashy), modified files
+      # need to be copied (from /usr/share/splashy/themes) before beeing 
+      # replaced. If it's not, they need to be moved (from
+      # /etc/splashy/themes)
+      # not modified files need to be removed if no symlink, and not
+      # touched in case of a symlink
+      THEME_FOLDER="/etc/splashy/themes/moreblue-orbit"
+      THEME_FOLDER_BAK="/etc/splashy.dpkg-old/themes/moreblue-orbit"
+      FILES="background-bw.png background-color.png VeraSans.ttf theme.xml"
+
+      if [ -h /etc/splashy/themes ]; then
+      # symlink
+        for FILE in ${FILES}; do
+          [ -f ${THEME_FOLDER}/${FILE} ] || break
+          if ! same_conffile "${THEME_FOLDER}/${FILE}"; then
+          # symlink and changed file, copy it in a safe place
+            [ -d $THEME_FOLDER_BAK ] || mkdir -p $THEME_FOLDER_BAK
+            cp ${THEME_FOLDER}/${FILE} ${THEME_FOLDER_BAK}/
+          fi
+        done
+      else
+      # real folder
+        for FILE in ${FILES}; do
+          [ -f ${THEME_FOLDER}/${FILE} ] || break
+          if ! same_conffile "${THEME_FOLDER}/${FILE}"; then
+          # real folder and changed file, move it in a safe place
+            [ -d $THEME_FOLDER_BAK ] || mkdir -p $THEME_FOLDER_BAK
+            mv ${THEME_FOLDER}/${FILE} ${THEME_FOLDER_BAK}/
+          else
+          # real folder but unchanged file, just remove it
+            rm ${THEME_FOLDER}/${FILE}
+          fi
+        done
+      fi
+    fi
+  ;;
+esac
+

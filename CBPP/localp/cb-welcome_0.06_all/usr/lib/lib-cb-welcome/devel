@@ -1,0 +1,12 @@
+clear
+
+echo "  -----------------------------[ screen $STEP of $STEPS ]----------------------------
+
+  INSTALL DEVELOPMENT PACKAGES
+  ----------------------------
+  The remaining screens will offer you the chance to install less commonly
+  used packages used for developing software."
+  
+if prompt "  Would you like to view these options/screens?"; then
+	DEVEL=true
+fi

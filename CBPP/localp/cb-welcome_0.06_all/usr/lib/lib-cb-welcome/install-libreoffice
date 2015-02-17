@@ -1,0 +1,18 @@
+clear
+
+echo "  -----------------------------[ screen $STEP of $STEPS ]----------------------------
+
+  INSTALL LibreOffice
+  -------------------
+  By default, CrunchBang comes preinstalled with some lightweight Office
+  applications, AbiWord and Gnumeric. Would you like to install the more
+  feature rich office suite, LibreOffice? If you choose to do this, the 
+  following package will be installed:
+
+      cb-meta-libreoffice
+
+  Note: additional packages listed as dependencies will also be installed."
+
+if prompt "  Would you like to install LibreOffice?"; then
+	sudo apt-get install -y cb-meta-libreoffice
+fi
