@@ -345,7 +345,7 @@
           <enabled>true</enabled>
           <name>Terminal</name>
         </startupnotify>
-        <command>terminator</command>
+        <command>x-terminal-emulator</command>
       </action>
     </keybind>
     <keybind key="W-w">
@@ -390,7 +390,7 @@
           <enabled>true</enabled>
           <name>htop</name>
         </startupnotify>
-        <command>terminator --command=&quot;htop&quot;</command>
+        <command>x-terminal-emulator -e htop</command>
       </action>
     </keybind>
     <keybind key="W-v">
