@@ -11,7 +11,8 @@ However, if you intend to build from our source, here are the steps:
 (We recommend using a Jessie-based Debian distro for building)
 
 1. apt-get install simple-cdd
-2. Download our source and extract the zip
+2. Download our source and extract the .zip
+   --Note, the packages are no longer located on this github repo. However, the torrent distributed from crunchbangplusplus.org includes the source .debs that were used for that iso.
 3. cd into CBPP_beta_02132015_src/
 4. ./build.sh to start the build process with our configuration
 
