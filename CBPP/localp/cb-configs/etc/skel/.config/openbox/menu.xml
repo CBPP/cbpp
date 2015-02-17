@@ -17,7 +17,7 @@
 		<item label="Terminal">
 			<action name="Execute">
 				<command>
-					terminator
+					x-terminal-emulator
 				</command>
 			</action>
 		</item>
@@ -74,7 +74,7 @@
 			</item>
 			<item label="Task Manager (htop)">
 				<action name="Execute">
-					<command>terminator --command=&quot;htop&quot;</command>
+					<command>x-terminal-emulator -e htop</command>
 				</action>
 			</item>
 			<item label="Terminator Terminal">
@@ -274,7 +274,7 @@
 				<item label="man page">
 					<action name="Execute">
 						<command>
-							terminator --command="man conky"
+							x-terminal-emulator -e man conky
 						</command>
 					</action>
 				</item>
@@ -298,7 +298,7 @@
 				<item label="man page">
 					<action name="Execute">
 						<command>
-							terminator --command="man dmenu"
+							x-terminal-emulator -e man dmenu
 						</command>
 					</action>
 				</item>
@@ -315,7 +315,7 @@
 				<item label="man page">
 					<action name="Execute">
 						<command>
-							terminator --command="man gmrun"
+							x-terminal-emulator -e man gmrun
 						</command>
 					</action>
 				</item>
@@ -384,7 +384,7 @@
 				<item label="man page">
 					<action name="Execute">
 						<command>
-							terminator --command="man terminator_config"
+							x-terminal-emulator -e man terminator_config
 						</command>
 					</action>
 				</item>
@@ -408,7 +408,7 @@
 				<item label="man page">
 					<action name="Execute">
 						<command>
-							terminator --command="man tint2"
+							x-terminal-emulator -e man tint2
 						</command>
 					</action>
 				</item>
@@ -432,7 +432,7 @@
 			    <item label="man xrandr">
 				    <action name="Execute">
 					    <command>
-						    terminator --command="man xrandr"
+						    x-terminal-emulator -e man xrandr
 					    </command>
 				    </action>
 			    </item>
@@ -447,7 +447,7 @@
 			<item label="Edit Default Applications">
 				<action name="Execute">
 					<command>
-						terminator --command="sudo update-alternatives --all"
+						x-terminal-emulator -e sudo update-alternatives --all
 					</command>
 				</action>
 			</item>
