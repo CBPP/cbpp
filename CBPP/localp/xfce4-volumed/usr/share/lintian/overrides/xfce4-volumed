@@ -1,3 +1,0 @@
-# we do use hardening flags
-xfce4-volumed: hardening-no-stackprotector usr/bin/xfce4-volumed
-xfce4-volumed: binary-without-manpage usr/bin/xfce4-volumed

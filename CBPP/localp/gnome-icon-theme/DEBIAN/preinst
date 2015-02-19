@@ -1,9 +1,0 @@
-#!/bin/sh
-
-set -e
-
-if [ "$1" = "upgrade" ] && dpkg --compare-versions "$2" lt-nl "3.0.0-5"; then
-  update-alternatives --remove start-here.svg /usr/share/icons/gnome/scalable/places/swirl-foot.svg
-fi
-
-

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Encoding=UTF-8
-Name=Debian Home Page
-Comment=The offical web site of the Debian Project
-Icon=/usr/share/pixmaps/debian-official-logo-small.png
-Type=Link
-URL=http://www.debian.org
-

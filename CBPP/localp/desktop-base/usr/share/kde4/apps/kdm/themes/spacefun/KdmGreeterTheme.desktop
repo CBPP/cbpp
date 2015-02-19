@@ -1,8 +1,0 @@
-[KdmGreeterTheme]
-Encoding=UTF-8
-Greeter=spacefun.xml
-Name=SpaceFun
-Description=SpaceFun KDM Theme
-Author=Yves-Alexis Perez, based on GDM theme
-Copyright=(c) 2010 Yves-Alexis Perez <corsac@debian.org>
-Screenshot=screenshot.png

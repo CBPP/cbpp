@@ -1,8 +1,0 @@
-[KdmGreeterTheme]
-Encoding=UTF-8
-Greeter=moreblue-orbit.xml
-Name=MoreBlue Orbit
-Description=MoreBlue Orbit KDM Theme, based on MoreBlue Orbit GDM Theme by Andre L. R. Ferreira and Valessio S. Brito
-Author=Fathi Boudra, based on same GDM Theme by Andre L. R. Ferreira and Valessio S. Brito
-Copyright=(c) 2008 Fathi Boudra <fabo@debian.org>
-Screenshot=screenshot.png
