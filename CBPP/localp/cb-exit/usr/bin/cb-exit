@@ -26,7 +26,7 @@ class cb_exit:
 	def suspend_action(self,btn):
 		self.disable_buttons()
 		self.status.set_label("Suspending, please standby...")
-		os.system("cb-lock")
+		os.system("xscreensaver-command-lock")
 		os.system("dbus-send --system --print-reply --dest=\"org.freedesktop.UPower\" /org/freedesktop/UPower org.freedesktop.UPower.Suspend")
 		gtk.main_quit()
 
