@@ -1,3 +1,0 @@
-#!/bin/sh
-python /usr/lib/obapps/obapps
-exit 0

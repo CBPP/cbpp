@@ -1,9 +1,0 @@
-#!/bin/sh
-. /etc/default/locale
-for lt_var in $(env -i locale | sed -e 's/=.*$//') LANGUAGE
-do
-	eval "if test \"\${$lt_var+set}\" = set; then
-		export $lt_var
-		fi"
-done
-
