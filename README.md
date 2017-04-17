@@ -1,7 +1,7 @@
 ## cbpp
 # #!++, A CrunchBang revival project.
 
-###Note: all packages have been split into individual repositories under CBPP/. The build repo will be remade when the files are finalized.
+### Note: all packages have been split into individual repositories under CBPP/. The build repo will be remade when the files are finalized.
 
 Philip Newborough -- Corenominal -- has officially discontinued his efforts with the fast and light distro. While Philip believes that the project no longer serves the Linux space in the way he had originally intended, we believe that #! still has great potential and serves the Linux community as the perfect combination of elegance and efficiency.
 
