@@ -67,6 +67,7 @@ APT_OPTIONS="--yes -o Acquire::Retries=5"
 APTITUDE_OPTIONS="--assume-yes -o Acquire::Retries=5"
 
 # Set options to use with debootstrap
+# TODO: --include=apt-transport-https,ca-certificates?
 DEBOOTSTRAP_OPTIONS=""
 
 # Set script to use with debootstrap

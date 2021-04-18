@@ -28,6 +28,7 @@ LB_PARENT_DEBIAN_INSTALLER_DISTRIBUTION="bullseye"
 LB_ARCHIVE_AREAS="main"
 
 # Select parent archive areas to use
+# TODO: contrib non-free?
 LB_PARENT_ARCHIVE_AREAS="main"
 
 # Set parent mirror to bootstrap from

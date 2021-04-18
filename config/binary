@@ -10,7 +10,7 @@ LB_BINARY_FILESYSTEM="fat32"
 LB_APT_INDICES="true"
 
 # Set boot parameters
-LB_BOOTAPPEND_LIVE="boot=live components quiet splash"
+LB_BOOTAPPEND_LIVE="boot=live components quiet splash username=live"
 
 # Set boot parameters
 LB_BOOTAPPEND_INSTALL=""
@@ -38,6 +38,7 @@ LB_ZSYNC="true"
 LB_BUILD_WITH_CHROOT="true"
 
 # Set debian-installer
+# TODO: live?
 LB_DEBIAN_INSTALLER="none"
 
 # Set debian-installer suite
@@ -68,7 +69,7 @@ LB_ISO_PREPARER="live-build @LB_VERSION@; https://salsa.debian.org/live-team/liv
 LB_ISO_PUBLISHER="Debian Live project; https://wiki.debian.org/DebianLive; debian-live@lists.debian.org"
 
 # Set iso volume (max 32 chars)
-LB_ISO_VOLUME="Debian bullseye @ISOVOLUME_TS@"
+LB_ISO_VOLUME="cbpp-11-$(date +%Y%m%d-%H:%M)"
 
 # Set jffs2 eraseblock size
 LB_JFFS2_ERASEBLOCK=""
