@@ -4,12 +4,15 @@
 - DONE -- mate volume
 - DONE -- faenza upgrade
 - DONE -- conky
-- compton shit
+- DONE --compton shit
 - DONE -- cbpp-exit
-- terminator colors
+- DONE -- terminator colors
 - TEST -- pipemenus
-- TEST -- get rid of evince
+- DONE -- get rid of evince
+- rebuild obapps
 - TEST -- obmenu/obapps
-- restart tint2
+- TEST -- restart tint2
+- power manager icon symlinks
+- bootloader artwork
 - github issues
 - reddit issues

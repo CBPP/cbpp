@@ -4,3 +4,4 @@ live-config-systemd
 
 sudo
 apt-transport-https
+psmisc
