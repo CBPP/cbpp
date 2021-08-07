@@ -7,12 +7,11 @@
 - DONE --compton shit
 - DONE -- cbpp-exit
 - DONE -- terminator colors
-- TEST -- pipemenus
+- DONE -- pipemenus
 - DONE -- get rid of evince
-- rebuild obapps
-- TEST -- obmenu/obapps
-- TEST -- restart tint2
+- DONE -- obmenu/obapps
+- DONE -- restart tint2
 - power manager icon symlinks
-- bootloader artwork
+- DONE -- bootloader artwork
 - github issues
 - reddit issues
