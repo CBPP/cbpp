@@ -25,7 +25,7 @@ LB_PARENT_DISTRIBUTION_BINARY="bullseye"
 LB_PARENT_DEBIAN_INSTALLER_DISTRIBUTION="bullseye"
 
 # Select archive areas to use
-LB_ARCHIVE_AREAS="main"
+LB_ARCHIVE_AREAS="main contrib non-free"
 
 # Select parent archive areas to use
 LB_PARENT_ARCHIVE_AREAS="main contrib non-free"

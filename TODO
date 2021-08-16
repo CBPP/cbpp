@@ -11,7 +11,9 @@
 - DONE -- get rid of evince
 - DONE -- obmenu/obapps
 - DONE -- restart tint2
-- power manager icon symlinks
+- TEST -- power manager icon symlinks
+- TEST -- file manager mount
 - DONE -- bootloader artwork
+- TEST -- EFI bootloader artwork
 - github issues
 - reddit issues

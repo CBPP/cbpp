@@ -1,0 +1,10 @@
+[Image]
+Architecture: amd64
+Archive-Areas: main contrib non-free
+Distribution: bullseye
+Mirror-Bootstrap: http://deb.debian.org/debian/
+
+[FIXME]
+Configuration-Version: 1:20190311
+Name: live-image
+Type: iso-hybrid
