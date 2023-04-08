@@ -1,7 +1,7 @@
 [Image]
 Architecture: amd64
-Archive-Areas: main contrib non-free
-Distribution: bullseye
+Archive-Areas: main contrib non-free-firmware
+Distribution: bookworm
 Mirror-Bootstrap: http://deb.debian.org/debian/
 
 [FIXME]
