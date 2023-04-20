@@ -24,7 +24,7 @@ $ docker run --privileged --cap-add=ALL -v /proc:/proc -v /sys:/sys -v $PWD/amd6
 If you don't want to run docker, you can run the same commands that get passed to the shell (as root, or with sudo):
 
 ```
-# apt-get update && apt-get install -y live-build && mkdir .build && touch .build/config && lb build
+# apt-get update && apt-get install -y live-build && cd amd64 && mkdir .build && touch .build/config && lb build
 ```
 
 ### Packages
