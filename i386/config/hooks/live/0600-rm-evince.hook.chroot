@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -e
+
+# No way to ignore the recommends on a recommend :(
+
+apt-get purge -y evince

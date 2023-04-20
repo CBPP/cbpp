@@ -1,7 +1,7 @@
 # config/bootstrap - options for live-build(7), bootstrap stage
 
 # Select architecture to use
-LB_ARCHITECTURE="amd64"
+LB_ARCHITECTURE="i386"
 
 # Select distribution to use
 LB_DISTRIBUTION="bullseye"

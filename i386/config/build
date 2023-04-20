@@ -1,5 +1,5 @@
 [Image]
-Architecture: amd64
+Architecture: i386
 Archive-Areas: main contrib non-free
 Distribution: bullseye
 Mirror-Bootstrap: http://deb.debian.org/debian/
