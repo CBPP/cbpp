@@ -1,0 +1,10 @@
+[Image]
+Architecture: i386
+Archive-Areas: main contrib non-free-firmware
+Distribution: bookworm
+Mirror-Bootstrap: http://deb.debian.org/debian/
+
+[FIXME]
+Configuration-Version: 1:20190311
+Name: live-image
+Type: iso-hybrid
