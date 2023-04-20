@@ -31,8 +31,8 @@ If you don't want to run docker, you can run the same commands that get passed t
 
 For the most part, CBPP is just a thin layer of configuration files added on top of Debian Stable. However, we do package those files for distribution. While the packages have been made available at several URLs over the years, you can currently find them at:
 
-- Committed in binary form at [CBPP/packages.crunchbangplusplus.org](https://github.com/CBPP/packages.crunchbangplusplus.org)
-- Hosted for consumption via apt at [packages.crunchbangplusplus.org](packages.crunchbangplusplus.org) though not browseable in the web browser(yet)
+- Committed in binary form at [CBPP/crunchbangplusplus.org/packages](https://github.com/CBPP/packages.crunchbangplusplus.org)
+- Hosted for consumption via apt at [crunchbangplusplus.org/packages](crunchbangplusplus.org/packages) though not browseable in the web browser(yet)
 
 ### Package Sources
 
