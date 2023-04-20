@@ -1,105 +1,119 @@
 # config/common - common options for live-build(7)
 
-# Version of live-build used to build config (config format version)
-LB_CONFIGURATION_VERSION="20210216"
-
-# Set package manager
+# $LB_APT: set package manager
+# (Default: apt)
 LB_APT="apt"
 
-# Set apt/aptitude ftp proxy
+# $LB_APT_FTP_PROXY: set apt/aptitude ftp proxy
+# (Default: autodetected or empty)
 LB_APT_FTP_PROXY=""
 
-# Set apt/aptitude http proxy
+# $LB_APT_HTTP_PROXY: set apt/aptitude http proxy
+# (Default: autodetected or empty)
 LB_APT_HTTP_PROXY=""
 
-# Set apt/aptitude pipeline depth
+# $LB_APT_PIPELINE: set apt/aptitude pipeline depth
+# (Default: )
 LB_APT_PIPELINE=""
 
-# Set apt/aptitude recommends
+# $LB_APT_RECOMMENDS: set apt/aptitude recommends
+# (Default: true)
 LB_APT_RECOMMENDS="true"
 
-# Set apt/aptitude security
+# $LB_APT_SECURE: set apt/aptitude security
+# (Default: true)
 LB_APT_SECURE="true"
 
-# Set apt/aptitude source entries in sources.list
+# $LB_APT_SOURCE_ARCHIVES: set apt/aptitude source entries in sources.list
+# (Default: true)
 LB_APT_SOURCE_ARCHIVES="true"
 
-# Control cache
+# $LB_CACHE: control cache
+# (Default: true)
 LB_CACHE="true"
 
-# Control if downloaded package indices should be cached
+# $LB_CACHE_INDICES: control if downloaded package indices should be cached
+# (Default: false)
 LB_CACHE_INDICES="false"
 
-# Control if downloaded packages files should be cached
+# $LB_CACHE_PACKAGES: control if downloaded packages files should be cached
+# (Default: true)
 LB_CACHE_PACKAGES="true"
 
-# Control if completed stages should be cached
+# $LB_CACHE_STAGES: control if completed stages should be cached
+# (Default: bootstrap)
 LB_CACHE_STAGES="bootstrap"
 
-# Set debconf(1) frontend to use
+# $LB_DEBCONF_FRONTEND: set debconf(1) frontend to use
+# (Default: noninteractive)
 LB_DEBCONF_FRONTEND="noninteractive"
 
-# Set debconf(1) priority to use
+# $LB_DEBCONF_PRIORITY: set debconf(1) priority to use
+# (Default: critical)
 LB_DEBCONF_PRIORITY="critical"
 
-# Set initramfs hook
+# $LB_INITRAMFS: set initramfs hook
+# (Default: live-boot)
 LB_INITRAMFS="live-boot"
 
-# Set initramfs compression
+# $LB_INITRAMFS_COMPRESSION: set initramfs compression
+# (Default: gzip)
 LB_INITRAMFS_COMPRESSION="gzip"
 
-# Set init system
+# $LB_INITSYSTEM: set init system
+# (Default: systemd)
 LB_INITSYSTEM="systemd"
 
-# Set distribution mode
+# $LB_FDISK: set fdisk program
+# (Default: autodetected)
+LB_FDISK="fdisk"
+
+# $LB_LOSETUP: set losetup program
+# (Default: autodetected)
+LB_LOSETUP="losetup"
+
+# $LB_MODE: set distribution mode
+# (Default: debian)
 LB_MODE="debian"
 
-# Set system type
+# $LB_SYSTEM: set system type
+# (Default: live)
 LB_SYSTEM="live"
 
-# Set base name of the image
-LB_IMAGE_NAME="live-image"
-
-# Set options to use with apt
-APT_OPTIONS="--yes -o Acquire::Retries=5"
-
-# Set options to use with aptitude
-APTITUDE_OPTIONS="--assume-yes -o Acquire::Retries=5"
-
-# Set options to use with debootstrap
-DEBOOTSTRAP_OPTIONS="--include=apt-transport-https,ca-certificates"
-
-# Set script to use with debootstrap
-DEBOOTSTRAP_SCRIPT=""
-
-# Set options to use with gzip
-GZIP_OPTIONS="-6 --rsyncable"
-
-# Enable UTC timestamps
-LB_UTC_TIME="false"
+# $LB_TASKSEL: set tasksel program
+# (Default: apt)
+LB_TASKSEL="apt"
 
 # live-build options
 
-# Enable breakpoints
-# If set here, overrides the command line option
+# $_BREAKPOINTS: enable breakpoints
+# (Default: false)
 #_BREAKPOINTS="false"
 
-# Enable debug
-# If set here, overrides the command line option
+# $_DEBUG: enable debug
+# (Default: false)
 #_DEBUG="false"
 
-# Enable color
-# If set here, overrides the command line option
-#_COLOR="auto"
+# $_COLOR: enable color
+# (Default: false)
+#_COLOR="false"
 
-# Enable force
-# If set here, overrides the command line option
+# $_FORCE: enable force
+# (Default: false)
 #_FORCE="false"
 
-# Enable quiet
-# If set here, overrides the command line option
-#_QUIET="false"
+# $_QUIET: enable quiet
+# (Default: false)
+_QUIET="false"
 
-# Enable verbose
-# If set here, overrides the command line option
+# $_VERBOSE: enable verbose
+# (Default: false)
 #_VERBOSE="false"
+
+# Internal stuff (FIXME)
+APT_OPTIONS="--yes"
+APTITUDE_OPTIONS="--assume-yes"
+DEBOOTSTRAP_OPTIONS="--include=apt-transport-https,ca-certificates"
+DEBOOTSTRAP_SCRIPT=""
+GZIP_OPTIONS="-6 --rsyncable"
+ISOHYBRID_OPTIONS=""

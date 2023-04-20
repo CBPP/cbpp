@@ -4,6 +4,3 @@ live-config-systemd
 
 sudo
 apt-transport-https
-psmisc
-xfce4-settings
-cryptsetup
