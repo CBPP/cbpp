@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -x
+
+apt-key adv --fetch-keys http://packages.crunchbangplusplus.org/cbpp.key
+
+echo "" >> /etc/apt/sources.list
+echo "deb http://packages.crunchbangplusplus.org/jessie jessie main" >> /etc/apt/sources.list
+
+apt-get update && apt-get -y install cbpp-metapackage

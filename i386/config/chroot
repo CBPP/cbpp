@@ -5,8 +5,8 @@
 LB_CHROOT_FILESYSTEM="squashfs"
 
 # $LB_UNION_FILESYSTEM: set union filesystem
-# (Default: overlay)
-LB_UNION_FILESYSTEM="overlay"
+# (Default: aufs)
+LB_UNION_FILESYSTEM="aufs"
 
 # $LB_INTERACTIVE: set interactive build
 # (Default: false)
@@ -18,19 +18,19 @@ LB_KEYRING_PACKAGES="debian-archive-keyring"
 
 # $LB_LINUX_FLAVOURS: set kernel flavour to use
 # (Default: autodetected)
-LB_LINUX_FLAVOURS="686"
+LB_LINUX_FLAVOURS="586"
 
 # $LB_LINUX_PACKAGES: set kernel packages to use
 # (Default: autodetected)
 LB_LINUX_PACKAGES="linux-image"
 
 # $LB_SECURITY: enable security updates
-# (Default: true)
-LB_SECURITY="true"
+# (Default: false)
+LB_SECURITY="false"
 
 # $LB_UPDATES: enable updates updates
-# (Default: true)
-LB_UPDATES="true"
+# (Default: false)
+LB_UPDATES="false"
 
 # $LB_BACKPORTS: enable backports updates
 # (Default: false)

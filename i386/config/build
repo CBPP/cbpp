@@ -1,10 +1,10 @@
 [Image]
 Architecture: i386
-Archive-Areas: main contrib non-free
-Distribution: stretch
+Archive-Areas: main
+Distribution: jessie
 Mirror-Bootstrap: http://ftp.debian.org/debian/
 
 [FIXME]
-Configuration-Version: 1:20170213
+Configuration-Version: 4.0.3
 Name: live-image
 Type: iso-hybrid

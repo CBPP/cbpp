@@ -28,6 +28,10 @@ LB_APT_SECURE="true"
 # (Default: true)
 LB_APT_SOURCE_ARCHIVES="true"
 
+# $LB_BOOTSTRAP: set bootstrap program
+# (Default: debootstrap)
+LB_BOOTSTRAP="debootstrap"
+
 # $LB_CACHE: control cache
 # (Default: true)
 LB_CACHE="true"
@@ -61,8 +65,8 @@ LB_INITRAMFS="live-boot"
 LB_INITRAMFS_COMPRESSION="gzip"
 
 # $LB_INITSYSTEM: set init system
-# (Default: systemd)
-LB_INITSYSTEM="systemd"
+# (Default: sysvinit)
+LB_INITSYSTEM="sysvinit"
 
 # $LB_FDISK: set fdisk program
 # (Default: autodetected)
@@ -83,6 +87,10 @@ LB_SYSTEM="live"
 # $LB_TASKSEL: set tasksel program
 # (Default: apt)
 LB_TASKSEL="apt"
+
+# $LB_TEMPLATES: set templates
+# (Default: /usr/share/live/build/templates)
+LB_TEMPLATES="/usr/share/live/build/templates"
 
 # live-build options
 
@@ -114,6 +122,6 @@ _QUIET="false"
 APT_OPTIONS="--yes"
 APTITUDE_OPTIONS="--assume-yes"
 DEBOOTSTRAP_OPTIONS=""
-DEBOOTSTRAP_SCRIPT=""
-GZIP_OPTIONS="-6  --rsyncable"
+CDEBOOTSTRAP_OPTIONS=""
+GZIP_OPTIONS="-6 --rsyncable"
 ISOHYBRID_OPTIONS=""

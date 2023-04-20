@@ -1,16 +1,16 @@
 # config/bootstrap - options for live-build(7), bootstrap stage
 
 # $LB_DISTRIBUTION: select distribution to use
-# (Default: stretch)
-LB_DISTRIBUTION="stretch"
+# (Default: jessie)
+LB_DISTRIBUTION="jessie"
 
 # $LB_PARENT_DISTRIBUTION: select parent distribution to use
-# (Default: stretch)
-LB_PARENT_DISTRIBUTION="stretch"
+# (Default: jessie)
+LB_PARENT_DISTRIBUTION="jessie"
 
 # $LB_PARENT_DEBIAN_INSTALLER_DISTRIBUTION: select parent distribution for debian-installer to use
-# (Default: stretch)
-LB_PARENT_DEBIAN_INSTALLER_DISTRIBUTION="stretch"
+# (Default: jessie)
+LB_PARENT_DEBIAN_INSTALLER_DISTRIBUTION="jessie"
 
 # $LB_PARENT_MIRROR_BOOTSTRAP: set parent mirror to bootstrap from
 # (Default: http://ftp.debian.org/debian/)
@@ -25,8 +25,8 @@ LB_PARENT_MIRROR_CHROOT="http://ftp.debian.org/debian/"
 LB_PARENT_MIRROR_CHROOT_SECURITY="http://security.debian.org/"
 
 # $LB_PARENT_MIRROR_BINARY: set parent mirror which ends up in the image
-# (Default: http://httpredir.debian.org/debian/)
-LB_PARENT_MIRROR_BINARY="http://httpredir.debian.org/debian/"
+# (Default: http://http.debian.net/debian/)
+LB_PARENT_MIRROR_BINARY="http://http.debian.net/debian/"
 
 # $LB_PARENT_MIRROR_BINARY_SECURITY: set security parent mirror which ends up in the image
 # (Default: http://security.debian.org/)
@@ -49,8 +49,8 @@ LB_MIRROR_CHROOT="http://ftp.debian.org/debian/"
 LB_MIRROR_CHROOT_SECURITY="http://security.debian.org/"
 
 # $LB_MIRROR_BINARY: set mirror which ends up in the image
-# (Default: http://httpredir.debian.org/debian/)
-LB_MIRROR_BINARY="http://httpredir.debian.org/debian/"
+# (Default: http://http.debian.net/debian/)
+LB_MIRROR_BINARY="http://http.debian.net/debian/"
 
 # $LB_MIRROR_BINARY_SECURITY: set security mirror which ends up in the image
 # (Default: http://security.debian.org/)

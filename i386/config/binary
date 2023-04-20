@@ -10,7 +10,7 @@ LB_APT_INDICES="true"
 
 # $LB_BOOTAPPEND_LIVE: set boot parameters
 # (Default: empty)
-LB_BOOTAPPEND_LIVE="boot=live components quiet splash username=live"
+LB_BOOTAPPEND_LIVE="boot=live components quiet splash"
 
 # $LB_BOOTAPPEND_INSTALL: set boot parameters
 # (Default: empty)
@@ -20,9 +20,9 @@ LB_BOOTAPPEND_INSTALL=""
 # (Default: empty)
 LB_BOOTAPPEND_LIVE_FAILSAFE="boot=live components memtest noapic noapm nodma nomce nolapic nomodeset nosmp nosplash vga=normal"
 
-# $LB_BOOTLOADERS: set bootloaders
-# (Default: syslinux,grub-efi)
-LB_BOOTLOADERS="syslinux,grub-efi"
+# $LB_BOOTLOADER: set bootloader
+# (Default: syslinux)
+LB_BOOTLOADER="syslinux"
 
 # $LB_CHECKSUMS: set checksums
 # (Default: md5)
@@ -47,7 +47,7 @@ LB_DEBIAN_INSTALLER="live"
 
 # $LB_DEBIAN_INSTALLER_DISTRIBUTION: set debian-installer suite
 # (Default: empty)
-LB_DEBIAN_INSTALLER_DISTRIBUTION="stretch"
+LB_DEBIAN_INSTALLER_DISTRIBUTION="jessie"
 
 # $LB_DEBIAN_INSTALLER_PRESEEDFILE: set debian-installer preseed filename/url
 # (Default: )
@@ -69,25 +69,21 @@ LB_HDD_LABEL="DEBIAN_LIVE"
 # (Default: auto)
 LB_HDD_SIZE="auto"
 
-# $LB_HDD_PARTITION_START: set start of partition for the hdd target for BIOSes that expect a specific boot partition start (e.g. "63s"). If empty, use optimal layout.
-# (Default: )
-LB_HDD_PARTITION_START=""
-
 # $LB_ISO_APPLICATION: set iso author
 # (Default: Debian Live)
 LB_ISO_APPLICATION="Debian Live"
 
 # $LB_ISO_PREPARER: set iso preparer
-# (Default: live-build 1:20170213; http://live-systems.org/devel/live-build)
-LB_ISO_PREPARER="live-build 1:20170213; http://live-systems.org/devel/live-build"
+# (Default: live-build $VERSION; http://live-systems.org/devel/live-build)
+LB_ISO_PREPARER="live-build $VERSION; http://live-systems.org/devel/live-build"
 
 # $LB_ISO_PUBLISHER: set iso publisher
 # (Default: Live Systems project; http://live-systems.org/; debian-live@lists.debian.org)
 LB_ISO_PUBLISHER="Live Systems project; http://live-systems.org/; debian-live@lists.debian.org"
 
 # $LB_ISO_VOLUME: set iso volume (max 32 chars)
-# (Default: cbpp-9-20170226-18:46)
-LB_ISO_VOLUME="cbpp-9-20170226-18:46"
+# (Default: Debian jessie $(date +%Y%m%d-%H:%M))
+LB_ISO_VOLUME="Debian jessie $(date +%Y%m%d-%H:%M)"
 
 # $LB_JFFS2_ERASEBLOCK: set jffs2 eraseblock size
 # (Default: unset)
@@ -98,12 +94,12 @@ LB_JFFS2_ERASEBLOCK=""
 LB_MEMTEST="none"
 
 # $LB_LOADLIN: set loadlin
-# (Default: false)
-LB_LOADLIN="false"
+# (Default: true)
+LB_LOADLIN="true"
 
 # $LB_WIN32_LOADER: set win32-loader
-# (Default: false)
-LB_WIN32_LOADER="false"
+# (Default: true)
+LB_WIN32_LOADER="true"
 
 # $LB_NET_ROOT_FILESYSTEM: set netboot filesystem
 # (Default: nfs)
