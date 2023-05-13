@@ -1,6 +1,6 @@
 [Image]
 Architecture: amd64
-Archive-Areas: main contrib non-free-firmware
+Archive-Areas: main contrib non-free non-free-firmware
 Distribution: bookworm
 Mirror-Bootstrap: http://deb.debian.org/debian/
 

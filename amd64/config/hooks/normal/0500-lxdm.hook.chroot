@@ -10,12 +10,6 @@ set -e
 
 apt-get -y install --no-install-recommends lxdm
 
-# crappy hacks for bullseye non-interactive prompt
-# echo -e "2\n1\n" | dpkg-reconfigure debconf
-# echo yes | apt-get -y install firmware-ivtv
-# echo yes | apt-get -y install firmware-ipw2x00
-# echo -e "6\n1\n" | dpkg-reconfigure debconf
-
 apt-get -y install cbpp-metapackage
 
 update-alternatives --set x-session-manager /usr/bin/openbox-session
