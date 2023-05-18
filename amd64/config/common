@@ -1,7 +1,7 @@
 # config/common - common options for live-build(7)
 
 # Version of live-build used to build config (config format version)
-LB_CONFIGURATION_VERSION="20210216"
+LB_CONFIGURATION_VERSION="20230131"
 
 # Set package manager
 LB_APT="apt"
