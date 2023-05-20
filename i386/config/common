@@ -1,15 +1,12 @@
 # config/common - common options for live-build(7)
 
 # Version of live-build used to build config (config format version)
-LB_CONFIGURATION_VERSION="20210216"
+LB_CONFIGURATION_VERSION="20230131"
 
 # Set package manager
 LB_APT="apt"
 
-# Set apt/aptitude ftp proxy
-LB_APT_FTP_PROXY=""
-
-# Set apt/aptitude http proxy
+# Set proxy for HTTP connections
 LB_APT_HTTP_PROXY=""
 
 # Set apt/aptitude pipeline depth

@@ -7,7 +7,7 @@ LB_IMAGE_TYPE="iso-hybrid"
 LB_BINARY_FILESYSTEM="fat32"
 
 # Set apt/aptitude generic indices
-LB_APT_INDICES="true"
+LB_APT_INDICES="false"
 
 # Set boot parameters
 LB_BOOTAPPEND_LIVE="boot=live components quiet splash username=live"
@@ -24,11 +24,23 @@ LB_BOOTLOADER_BIOS="syslinux"
 # Set EFI bootloader
 LB_BOOTLOADER_EFI="grub-efi"
 
+# Set bootloaders
+LB_BOOTLOADERS=""
+
 # Set checksums
-LB_CHECKSUMS="sha256"
+LB_CHECKSUMS="sha256 md5"
 
 # Set compression
 LB_COMPRESSION="none"
+
+# Support dm-verity on rootfs
+LB_DM_VERITY=""
+
+# Support FEC on dm-verity rootfs
+LB_DM_VERITY_FEC_ROOTS=""
+
+# Set sign script for roothash for dm-verity rootfs
+LB_DM_VERITY_SIGN=""
 
 # Set zsync
 LB_ZSYNC="true"
@@ -68,7 +80,7 @@ LB_ISO_PREPARER="live-build @LB_VERSION@; https://salsa.debian.org/live-team/liv
 LB_ISO_PUBLISHER="Debian Live project; https://wiki.debian.org/DebianLive; debian-live@lists.debian.org"
 
 # Set iso volume (max 32 chars)
-LB_ISO_VOLUME="cbpp-11-$(date +%Y%m%d-%H:%M)"
+LB_ISO_VOLUME="cbpp-12-$(date +%Y%m%d-%H:%M)"
 
 # Set jffs2 eraseblock size
 LB_JFFS2_ERASEBLOCK=""
