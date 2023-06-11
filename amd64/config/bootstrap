@@ -25,10 +25,10 @@ LB_PARENT_DISTRIBUTION_BINARY="bookworm"
 LB_PARENT_DEBIAN_INSTALLER_DISTRIBUTION="bookworm"
 
 # Select archive areas to use
-LB_ARCHIVE_AREAS="main contrib non-free-firmware"
+LB_ARCHIVE_AREAS="main contrib non-free non-free-firmware"
 
 # Select parent archive areas to use
-LB_PARENT_ARCHIVE_AREAS="main contrib non-free-firmware"
+LB_PARENT_ARCHIVE_AREAS="main contrib non-free non-free-firmware"
 
 # Set parent mirror to bootstrap from
 LB_PARENT_MIRROR_BOOTSTRAP="http://deb.debian.org/debian/"

@@ -18,7 +18,13 @@ In this repository, you'll find the sources used to generate the actual system i
 While you can certainly build the iso natively, it's easiest and very tidy to use docker, as below.
 
 ```
-$ docker run --privileged --cap-add=ALL -v /proc:/proc -v /sys:/sys -v $PWD/amd64:/build -w /build -it --rm debian:bookworm /bin/sh -c 'apt-get update && apt-get install -y live-build && mkdir .build && touch .build/config && lb build'
+# amd64
+$ docker run --privileged --cap-add=ALL -v /proc:/proc -v /sys:/sys -v $PWD/amd64:/build -w /build -it --rm debian:bookworm /bin/sh -c 'apt-get update && apt-get install -y live-build && mkdir -p .build && touch .build/config && lb build'
+```
+
+```
+# i386
+$ docker run --privileged --cap-add=ALL -v /proc:/proc -v /sys:/sys -v $PWD/i386:/build -w /build -it --rm i386/debian:bookworm /bin/sh -c 'apt-get update && apt-get install -y live-build && mkdir -p .build && touch .build/config && lb build'
 ```
 
 If you don't want to run docker, you can run the same commands that get passed to the shell (as root, or with sudo):
