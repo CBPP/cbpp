@@ -19,7 +19,7 @@ LB_APT_RECOMMENDS="true"
 LB_APT_SECURE="true"
 
 # Set apt/aptitude source entries in sources.list
-LB_APT_SOURCE_ARCHIVES="true"
+LB_APT_SOURCE_ARCHIVES="false"
 
 # Control cache
 LB_CACHE="true"

@@ -80,7 +80,7 @@ LB_ISO_PREPARER="live-build @LB_VERSION@; https://salsa.debian.org/live-team/liv
 LB_ISO_PUBLISHER="Debian Live project; https://wiki.debian.org/DebianLive; debian-live@lists.debian.org"
 
 # Set iso volume (max 32 chars)
-LB_ISO_VOLUME="cbpp-12-$(date +%Y%m%d-%H:%M)"
+LB_ISO_VOLUME="cbpp-12-20230610-22:16"
 
 # Set jffs2 eraseblock size
 LB_JFFS2_ERASEBLOCK=""
