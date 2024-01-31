@@ -31,4 +31,4 @@ LB_SECURITY="true"
 LB_UPDATES="true"
 
 # Enable backports updates
-LB_BACKPORTS="false"
+LB_BACKPORTS="true"
