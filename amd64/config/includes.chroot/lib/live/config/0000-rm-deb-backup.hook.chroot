@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. /lib/live/config.sh
+
+rm -rf /etc/apt/sources.list.d/nonfree-n-backports.list
