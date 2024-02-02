@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -ex
 
 # remove raspi-frimware
 dpkg --purge raspi-firmware
@@ -10,4 +10,13 @@ echo "APT::Get::Update::SourceListWarnings::NonFreeFirmware \"false\";" > /etc/a
 # restore os-prober
 # sed -i 's|#GRUB_DISABLE_OS_PROBER=false|GRUB_DISABLE_OS_PROBER=false|g' /etc/default/grub
 
+ls -lsah /etc/apt/sources.list.d/*
+
+cat << EOF > /etc/apt/sources.list.d/tmp.list
+deb http://deb.debian.org/debian/ bookworm-backports main contrib non-free non-free-firmware
+EOF
+
+apt-get update
 apt-get install -y -t=bookworm-backports linux-image-amd64
+
+rm /etc/apt/sources.list.d/tmp.list
