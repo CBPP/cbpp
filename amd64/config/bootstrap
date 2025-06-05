@@ -4,25 +4,25 @@
 LB_ARCHITECTURE="amd64"
 
 # Select distribution to use
-LB_DISTRIBUTION="bookworm"
+LB_DISTRIBUTION="trixie"
 
 # Select parent distribution to use
 LB_PARENT_DISTRIBUTION=""
 
 # Select distribution to use in the chroot
-LB_DISTRIBUTION_CHROOT="bookworm"
+LB_DISTRIBUTION_CHROOT="trixie"
 
 # Select parent distribution to use in the chroot
-LB_PARENT_DISTRIBUTION_CHROOT="bookworm"
+LB_PARENT_DISTRIBUTION_CHROOT="trixie"
 
 # Select distribution to use in the final image
-LB_DISTRIBUTION_BINARY="bookworm"
+LB_DISTRIBUTION_BINARY="trixie"
 
 # Select parent distribution to use in the final image
-LB_PARENT_DISTRIBUTION_BINARY="bookworm"
+LB_PARENT_DISTRIBUTION_BINARY="trixie"
 
 # Select parent distribution for debian-installer to use
-LB_PARENT_DEBIAN_INSTALLER_DISTRIBUTION="bookworm"
+LB_PARENT_DEBIAN_INSTALLER_DISTRIBUTION="trixie"
 
 # Select archive areas to use
 LB_ARCHIVE_AREAS="main contrib non-free non-free-firmware"
