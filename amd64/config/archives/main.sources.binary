@@ -1,0 +1,6 @@
+Types: deb deb-src
+URIs: https://deb.debian.org/debian
+Suites: trixie
+Components: contrib main non-free non-free-firmware
+Enabled: yes
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
