@@ -9,5 +9,3 @@ echo "APT::Get::Update::SourceListWarnings::NonFreeFirmware \"false\";" > /etc/a
 
 # restore os-prober
 # sed -i 's|#GRUB_DISABLE_OS_PROBER=false|GRUB_DISABLE_OS_PROBER=false|g' /etc/default/grub
-
-ls -lsah /etc/apt/sources.list.d/*
