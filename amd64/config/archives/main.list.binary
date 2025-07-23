@@ -1,0 +1,4 @@
+deb https://deb.debian.org/debian trixie contrib main non-free non-free-firmware
+deb https://deb.debian.org/debian trixie-updates contrib main non-free non-free-firmware
+deb https://deb.debian.org/debian trixie-backports contrib main non-free non-free-firmware
+deb https://security.debian.org/ trixie-security contrib main non-free non-free-firmware

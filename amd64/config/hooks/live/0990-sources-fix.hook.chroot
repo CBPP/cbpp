@@ -1,12 +1,16 @@
 #!/bin/sh
 set -ex
 
+# rm -rf /etc/apt/sources.list
+
 # remove raspi-frimware
-dpkg --purge raspi-firmware
+# dpkg --purge raspi-firmware
 
 # stop bugging about nonfree
-echo "APT::Get::Update::SourceListWarnings::NonFreeFirmware \"false\";" > /etc/apt/apt.conf.d/no-bookworm-firmware.conf
+# echo "APT::Get::Update::SourceListWarnings::NonFreeFirmware \"false\";" > /etc/apt/apt.conf.d/no-bookworm-firmware.conf
 
 # restore os-prober
 # sed -i 's|#GRUB_DISABLE_OS_PROBER=false|GRUB_DISABLE_OS_PROBER=false|g' /etc/default/grub
+
+
 
