@@ -32,3 +32,6 @@ LB_UPDATES="true"
 
 # Enable backports updates
 LB_BACKPORTS="true"
+
+# Enable proposed updates
+LB_PROPOSED_UPDATES="false"

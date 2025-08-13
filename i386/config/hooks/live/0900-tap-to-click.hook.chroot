@@ -1,6 +1,0 @@
-#!/bin/sh
-
-cp -r /usr/share/X11/xorg.conf.d /etc/X11/
-
-sed -i 's|        Identifier "libinput touchpad catchall"|        Identifier "libinput touchpad catchall"\n        Option "Tapping" "true"|g' \
-	/etc/X11/xorg.conf.d/40-libinput.conf

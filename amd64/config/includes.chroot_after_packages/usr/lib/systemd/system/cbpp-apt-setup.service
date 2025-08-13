@@ -1,0 +1,10 @@
+[Unit]
+Description=cbpp apt setup service
+After=getty@%i.service
+
+[Service]
+ExecStart=/usr/lib/cbpp/apt-setup
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

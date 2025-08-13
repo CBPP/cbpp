@@ -1,0 +1,18 @@
+#!/bin/bash -ex
+
+grep 'deb cdrom' /etc/apt/sources.list
+RC=$?
+
+if [ $RC -eq 0 ]; then
+cat << EOF > /etc/apt/sources.list
+deb https://deb.debian.org/debian trixie contrib main non-free non-free-firmware
+deb https://deb.debian.org/debian trixie-updates contrib main non-free non-free-firmware
+deb https://deb.debian.org/debian trixie-backports contrib main non-free non-free-firmware
+deb https://security.debian.org/ trixie-security contrib main non-free non-free-firmware
+EOF
+rm /etc/apt/sources.list~
+fi
+
+systemctl disable cbpp-apt-setup
+rm /usr/lib/systemd/system/cbpp-apt-setup.service
+rm -rf /usr/lib/cbpp
