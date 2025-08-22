@@ -18,19 +18,13 @@ In this repository, you'll find the sources used to generate the actual system i
 While you can certainly build the iso natively, it's easiest and very tidy to use docker, as below.
 
 ```
-# amd64
-$ docker run --privileged --cap-add=ALL -v /proc:/proc -v /sys:/sys -v $PWD/amd64:/build -w /build -it --rm debian:trixie /bin/sh -c 'apt-get update && apt-get install -y live-build && mkdir -p .build && touch .build/config && lb build'
-```
-
-```
-# i386
-$ docker run --privileged --cap-add=ALL -v /proc:/proc -v /sys:/sys -v $PWD/i386:/build -w /build -it --rm i386/debian:trixie /bin/sh -c 'apt-get update && apt-get install -y live-build && mkdir -p .build && touch .build/config && lb build'
+$ docker run --privileged --cap-add=ALL -v /proc:/proc -v /sys:/sys -v $PWD:/build -w /build -it --rm debian:trixie /bin/sh -c 'apt-get update && apt-get install -y live-build && mkdir -p .build && touch .build/config && lb build'
 ```
 
 If you don't want to run docker, you can run the same commands that get passed to the shell (as root, or with sudo):
 
 ```
-# apt-get update && apt-get install -y live-build && cd amd64 && mkdir .build && touch .build/config && lb build
+# apt-get update && apt-get install -y live-build && mkdir .build && touch .build/config && lb build
 ```
 
 ### Packages
@@ -44,5 +38,14 @@ For the most part, CBPP is just a thin layer of configuration files added on top
 
 All of the sources for CBPP's custom packages are available here on Github
 
-- todo
-
+- [cbpp-metapackage](https://github.com/CBPP/cbpp-metapackage) - a virtual package responsible for pulling in all of the packages required to build the entire environment, literally just a list of dependencies
+- [cbpp-exit](https://github.com/CBPP/cbpp-exit) - a python script which presents a gtk window of logout/power options
+- [cbpp-pipemenus](https://github.com/CBPP/cbpp-pipemenus) - pipemenus (dynamic menu items) for the Openbox menu, and supporting scripts
+- [cbpp-configs](https://github.com/CBPP/cbpp-configs) - the meat and potatoes of crunchbang configuration, mostly dotfiles
+- [cbpp-welcome](https://github.com/CBPP/cbpp-welcome) - source for the welcome script that runs on first boot
+- [cbpp-lxdm-theme](https://github.com/CBPP/cbpp-lxdm-theme) - theme and config file for lxdm
+- [obmenu](https://github.com/CBPP/obmenu) - a configuration tool for openbox menus
+- [obapps](https://github.com/CBPP/obapps) - a configuration tool for openbox application settings
+- [cbpp-wallpapers](https://github.com/CBPP/cbpp-wallpapers) - wallpapers
+- [cbpp-ui-theme](https://github.com/CBPP/cbpp-ui-theme) - Default UI themes (gtk, openbox, etc)
+- [cbpp-icon-theme](https://github.com/CBPP/cbpp-icon-theme) - Default icon theme (a desaturated fork of faenza)
